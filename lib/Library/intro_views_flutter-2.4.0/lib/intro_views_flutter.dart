@@ -20,12 +20,12 @@ class IntroViewsFlutter extends StatefulWidget {
   final List<PageViewModel> pages;
 
   /// Callback on Done Button Pressed
-  final VoidCallback onTapDoneButton;
+  final VoidCallback? onTapDoneButton;
 
   /// set the Text Color for skip, done buttons
   ///
   /// gets overiden by [pageButtonTextStyles]
-  final Color pageButtonsColor;
+  final Color? pageButtonsColor;
 
   /// Whether you want to show the skip button or not.
   final bool showSkipButton;
@@ -33,10 +33,10 @@ class IntroViewsFlutter extends StatefulWidget {
   /// TextStyles for done, skip Buttons
   ///
   /// overrides [pageButtonFontFamily] [pageButtonsColor] [pageButtonTextSize]
-  final TextStyle pageButtonTextStyles;
+  final TextStyle? pageButtonTextStyles;
 
   /// run a function after skip Button pressed
-  final VoidCallback onTapSkipButton;
+  final VoidCallback? onTapSkipButton;
 
   /// set the Text Size for skip, done buttons
   ///
@@ -46,7 +46,7 @@ class IntroViewsFlutter extends StatefulWidget {
   /// set the Font Family for skip, done buttons
   ///
   /// gets overridden by [pageButtonTextStyles]
-  final String pageButtonFontFamily;
+  final String? pageButtonFontFamily;
 
   /// Override 'DONE' Text with Your Own Text,
   /// typicaly a Text Widget
@@ -74,7 +74,7 @@ class IntroViewsFlutter extends StatefulWidget {
 
   IntroViewsFlutter(
     this.pages, {
-    Key key,
+    Key? key,
     this.onTapDoneButton,
     this.showSkipButton = true,
     this.pageButtonTextStyles,
@@ -98,25 +98,25 @@ class IntroViewsFlutter extends StatefulWidget {
 
 class _IntroViewsFlutterState extends State<IntroViewsFlutter>
     with TickerProviderStateMixin {
-  StreamController<SlideUpdate>
+  StreamController<SlideUpdate>?
       // ignore: close_sinks
       slideUpdateStream; //Stream controller is used to get all the updates when user slides across screen.
 
-  AnimatedPageDragger
+  AnimatedPageDragger?
       animatedPageDragger; //When user stops dragging then by using this page automatically drags.
 
   int activePageIndex = 0; //active page index
   int nextPageIndex = 0; //next page index
   SlideDirection slideDirection = SlideDirection.none; //slide direction
   double slidePercent = 0.0; //slide percentage (0.0 to 1.0)
-  StreamSubscription<SlideUpdate> slideUpdateStream$;
+  StreamSubscription<SlideUpdate>? slideUpdateStream$;
 
   @override
   void initState() {
     //Stream Controller initialization
     slideUpdateStream = StreamController<SlideUpdate>();
     //listening to updates of stream controller
-    slideUpdateStream$ = slideUpdateStream.stream.listen((SlideUpdate event) {
+    slideUpdateStream$ = slideUpdateStream?.stream.listen((SlideUpdate event) {
       setState(() {
         //setState is used to change the values dynamically
 
@@ -159,7 +159,7 @@ class _IntroViewsFlutterState extends State<IntroViewsFlutter>
             nextPageIndex = activePageIndex;
           }
           //Run the animation
-          animatedPageDragger.run();
+          animatedPageDragger?.run();
         }
         //when animating
         else if (event.updateType == UpdateType.animating) {
@@ -248,7 +248,7 @@ class _IntroViewsFlutterState extends State<IntroViewsFlutter>
                 // after skip pressed invoke function
                 // this can be used for analytics/page transition
                 if (widget.onTapSkipButton != null) {
-                  widget.onTapSkipButton();
+                  widget.onTapSkipButton!();
                 }
               });
             },

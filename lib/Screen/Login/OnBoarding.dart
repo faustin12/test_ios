@@ -1,7 +1,7 @@
 import 'package:test_ios/Library/intro_views_flutter-2.4.0/lib/Models/page_view_model.dart';
 import 'package:test_ios/Library/intro_views_flutter-2.4.0/lib/intro_views_flutter.dart';
 import 'package:flutter/material.dart';
-import 'ChoseLoginOrSignup.dart';
+//import 'ChoseLoginOrSignup.dart';
 
 class onBoarding extends StatefulWidget {
   @override
@@ -113,7 +113,7 @@ class _onBoardingState extends State<onBoarding> {
             fontSize: 17.0),
       ),
       onTapDoneButton: () {
-        Navigator.of(context).pushReplacement(PageRouteBuilder(
+        /*Navigator.of(context).pushReplacement(PageRouteBuilder(
           pageBuilder: (_, __, ___) => new ChoseLogin(),
           transitionsBuilder:
               (_, Animation<double> animation, __, Widget widget) {
@@ -123,7 +123,7 @@ class _onBoardingState extends State<onBoarding> {
             );
           },
           transitionDuration: Duration(milliseconds: 1500),
-        ));
+        ));*/
       },
     );
   }

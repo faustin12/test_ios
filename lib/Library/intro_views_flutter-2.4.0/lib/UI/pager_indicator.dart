@@ -8,7 +8,7 @@ import 'package:test_ios/Library/intro_views_flutter-2.4.0/lib/UI/page_bubble.da
 
 class PagerIndicator extends StatelessWidget {
   //view model
-  final PagerIndicatorViewModel viewModel;
+  final PagerIndicatorViewModel? viewModel;
 
   //Constructor
   PagerIndicator({
@@ -20,36 +20,36 @@ class PagerIndicator extends StatelessWidget {
     //Extracting page bubble information from page view model
     List<PageBubble> bubbles = [];
 
-    for (var i = 0; i < viewModel.pages.length; i++) {
-      final page = viewModel.pages[i];
+    for (var i = 0; i < viewModel!.pages.length; i++) {
+      final page = viewModel?.pages[i];
 
       //calculating percent active
       var percentActive;
-      if (i == viewModel.activeIndex) {
-        percentActive = 1.0 - viewModel.slidePercent;
-      } else if (i == viewModel.activeIndex - 1 &&
-          viewModel.slideDirection == SlideDirection.leftToRight) {
-        percentActive = viewModel.slidePercent;
-      } else if (i == viewModel.activeIndex + 1 &&
-          viewModel.slideDirection == SlideDirection.rightToLeft) {
-        percentActive = viewModel.slidePercent;
+      if (i == viewModel?.activeIndex) {
+        percentActive = 1.0 - viewModel!.slidePercent;
+      } else if (i == viewModel!.activeIndex - 1 &&
+          viewModel?.slideDirection == SlideDirection.leftToRight) {
+        percentActive = viewModel?.slidePercent;
+      } else if (i == viewModel!.activeIndex + 1 &&
+          viewModel?.slideDirection == SlideDirection.rightToLeft) {
+        percentActive = viewModel!.slidePercent;
       } else {
         percentActive = 0.0;
       }
 
       //Checking is that bubble hollow
-      bool isHollow = i > viewModel.activeIndex ||
-          (i == viewModel.activeIndex &&
-              viewModel.slideDirection == SlideDirection.leftToRight);
+      bool isHollow = i > viewModel!.activeIndex ||
+          (i == viewModel?.activeIndex &&
+              viewModel!.slideDirection == SlideDirection.leftToRight);
 
       //Adding to the list
       bubbles.add(PageBubble(
         viewModel: PageBubbleViewModel(
-          iconAssetPath: page.iconImageAssetPath,
-          iconColor: page.iconColor,
+          iconAssetPath: page?.iconImageAssetPath,
+          iconColor: page?.iconColor,
           isHollow: isHollow,
           activePercent: percentActive,
-          bubbleBackgroundColor: page.bubbleBackgroundColor,
+          bubbleBackgroundColor: page!.bubbleBackgroundColor,
           bubbleInner: page.bubble,
         ),
       ));
@@ -57,13 +57,13 @@ class PagerIndicator extends StatelessWidget {
 
     //Calculating the translation value of pager indicator while sliding.
     final baseTranslation =
-        ((viewModel.pages.length * BUBBLE_WIDTH) / 2) - (BUBBLE_WIDTH / 2);
-    var translation = baseTranslation - (viewModel.activeIndex * BUBBLE_WIDTH);
+        ((viewModel!.pages.length * BUBBLE_WIDTH) / 2) - (BUBBLE_WIDTH / 2);
+    var translation = baseTranslation - (viewModel!.activeIndex * BUBBLE_WIDTH);
 
-    if (viewModel.slideDirection == SlideDirection.leftToRight) {
-      translation += BUBBLE_WIDTH * viewModel.slidePercent;
-    } else if (viewModel.slideDirection == SlideDirection.rightToLeft) {
-      translation -= BUBBLE_WIDTH * viewModel.slidePercent;
+    if (viewModel?.slideDirection == SlideDirection.leftToRight) {
+      translation += BUBBLE_WIDTH * viewModel!.slidePercent;
+    } else if (viewModel?.slideDirection == SlideDirection.rightToLeft) {
+      translation -= BUBBLE_WIDTH * viewModel!.slidePercent;
     }
     //UI
     return Column(

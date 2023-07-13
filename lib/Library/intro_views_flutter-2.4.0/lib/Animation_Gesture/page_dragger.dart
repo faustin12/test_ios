@@ -8,11 +8,11 @@ import 'package:test_ios/Library/intro_views_flutter-2.4.0/lib/Models/slide_upda
 
 class PageDragger extends StatefulWidget {
   //These bool variables are used to check whether user can drag left or right or none.
-  final bool canDragLeftToRight;
-  final bool canDragRightToLeft;
+  final bool? canDragLeftToRight;
+  final bool? canDragRightToLeft;
   final double fullTransitionPX;
   //Stream controller
-  final StreamController<SlideUpdate> slideUpdateStream;
+  final StreamController<SlideUpdate>? slideUpdateStream;
 
   //Constructor
   PageDragger({
@@ -28,8 +28,8 @@ class PageDragger extends StatefulWidget {
 
 class _PageDraggerState extends State<PageDragger> {
   //Variables
-  Offset dragStart;
-  SlideDirection slideDirection;
+  Offset? dragStart;
+  SlideDirection? slideDirection;
   double slidePercent = 0.0;
 
   // This methods executes when user starts dragging.
@@ -43,12 +43,12 @@ class _PageDraggerState extends State<PageDragger> {
       //Getting new position details
       final newPosition = details.globalPosition;
       //Change in position in x
-      final dx = dragStart.dx - newPosition.dx;
+      final dx = dragStart!.dx - newPosition.dx;
 
       //predicting slide direction
-      if (dx > 0.0 && widget.canDragRightToLeft) {
+      if (dx > 0.0 && widget.canDragRightToLeft!) {
         slideDirection = SlideDirection.rightToLeft;
-      } else if (dx < 0.0 && widget.canDragLeftToRight) {
+      } else if (dx < 0.0 && widget.canDragLeftToRight!) {
         slideDirection = SlideDirection.leftToRight;
       } else {
         slideDirection = SlideDirection.none;
@@ -64,14 +64,14 @@ class _PageDraggerState extends State<PageDragger> {
 
       // Adding to slideUpdateStream
       widget.slideUpdateStream
-          .add(SlideUpdate(slideDirection, slidePercent, UpdateType.dragging));
+          ?.add(SlideUpdate(slideDirection!, slidePercent, UpdateType.dragging));
     }
   }
 
   // This method executes when user ends dragging.
   onDragEnd(DragEndDetails details) {
     // Adding to slideUpdateStream
-    widget.slideUpdateStream.add(SlideUpdate(
+    widget.slideUpdateStream?.add(SlideUpdate(
         SlideDirection.none, slidePercent, UpdateType.doneDragging));
 
     //Making dragStart to null for the reallocation

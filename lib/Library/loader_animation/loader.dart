@@ -27,10 +27,10 @@ class ColorLoader5 extends StatefulWidget {
 
 class _ColorLoader5State extends State<ColorLoader5>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation_1;
-  Animation<double> animation_2;
-  Animation<double> animation_3;
-  AnimationController controller;
+  Animation<double>? animation_1;
+  Animation<double>? animation_2;
+  Animation<double>? animation_3;
+  AnimationController? controller;
 
   @override
   void initState() {
@@ -41,32 +41,32 @@ class _ColorLoader5State extends State<ColorLoader5>
 
     animation_1 = Tween(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: controller,
+        parent: controller!,
         curve: Interval(0.0, 0.70, curve: Curves.linear),
       ),
     );
 
     animation_2 = Tween(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: controller,
+        parent: controller!,
         curve: Interval(0.1, 0.80, curve: Curves.linear),
       ),
     );
 
     animation_3 = Tween(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: controller,
+        parent: controller!,
         curve: Interval(0.2, 0.90, curve: Curves.linear),
       ),
     );
 
-    controller.addListener(() {
+    controller?.addListener(() {
       setState(() {
         //print(animation_1.value);
       });
     });
 
-    controller.repeat();
+    controller?.repeat();
   }
 
   @override
@@ -77,7 +77,7 @@ class _ColorLoader5State extends State<ColorLoader5>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Opacity(
-            opacity: (animation_1.value <= 0.4 ? 2.5 * animation_1.value : (animation_1.value > 0.40 && animation_1.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_1.value)),
+            opacity: (animation_1!.value <= 0.4 ? 2.5 * animation_1!.value : (animation_1!.value > 0.40 && animation_1!.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_1!.value)),
             child: new Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Dot(
@@ -89,7 +89,7 @@ class _ColorLoader5State extends State<ColorLoader5>
             ),
           ),
           Opacity(
-            opacity: (animation_2.value <= 0.4 ? 2.5 * animation_2.value : (animation_2.value > 0.40 && animation_2.value <= 0.60)? 1.0 : 2.5 - (2.5 * animation_2.value)),
+            opacity: (animation_2!.value <= 0.4 ? 2.5 * animation_2!.value : (animation_2!.value > 0.40 && animation_2!.value <= 0.60)? 1.0 : 2.5 - (2.5 * animation_2!.value)),
             child: new Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Dot(
@@ -101,7 +101,7 @@ class _ColorLoader5State extends State<ColorLoader5>
             ),
           ),
           Opacity(
-            opacity: (animation_3.value <= 0.4 ? 2.5 * animation_3.value : (animation_3.value > 0.40 && animation_3.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_3.value)),
+            opacity: (animation_3!.value <= 0.4 ? 2.5 * animation_3!.value : (animation_3!.value > 0.40 && animation_3!.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_3!.value)),
             child: new Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Dot(
@@ -120,16 +120,16 @@ class _ColorLoader5State extends State<ColorLoader5>
   @override
   void dispose() {
 
-    controller.dispose();
+    controller?.dispose();
     super.dispose();
   }
 }
 
 class Dot extends StatelessWidget {
-  final double radius;
-  final Color color;
-  final DotType type;
-  final Icon icon;
+  final double? radius;
+  final Color? color;
+  final DotType? type;
+  final Icon? icon;
 
   Dot({this.radius, this.color, this.type, this.icon});
 
@@ -137,7 +137,7 @@ class Dot extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Center(
       child: type == DotType.icon ?
-      Icon(icon.icon, color: color, size: 1.3 * radius,)
+      Icon(icon?.icon, color: color, size: 1.3 * radius!,)
           : new Transform.rotate(
         angle: type == DotType.diamond ? pi/4 : 0.0,
         child: Container(

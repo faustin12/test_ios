@@ -34,21 +34,21 @@ enum EntryAnimation {
 
 class BaseGiffyDialog extends StatefulWidget {
   BaseGiffyDialog({
-    Key key,
-    @required this.imageWidget,
-    @required this.title,
-    @required this.onOkButtonPressed,
-    @required this.description,
-    @required this.onlyOkButton,
-    @required this.onlyCancelButton,
-    @required this.buttonOkText,
-    @required this.buttonCancelText,
-    @required this.buttonOkColor,
-    @required this.buttonCancelColor,
-    @required this.cornerRadius,
-    @required this.buttonRadius,
-    @required this.entryAnimation,
-    @required this.onCancelButtonPressed,
+    Key? key,
+    required this.imageWidget,
+    required this.title,
+    required this.onOkButtonPressed,
+    required this.description,
+    required this.onlyOkButton,
+    required this.onlyCancelButton,
+    required this.buttonOkText,
+    required this.buttonCancelText,
+    required this.buttonOkColor,
+    required this.buttonCancelColor,
+    required this.cornerRadius,
+    required this.buttonRadius,
+    required this.entryAnimation,
+    required this.onCancelButtonPressed,
   }) : super(key: key);
 
   final Widget imageWidget;
@@ -72,8 +72,8 @@ class BaseGiffyDialog extends StatefulWidget {
 
 class _BaseGiffyDialogState extends State<BaseGiffyDialog>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<Offset> _entryAnimation;
+  AnimationController? _animationController;
+  Animation<Offset>? _entryAnimation;
 
   get _start {
     switch (widget.entryAnimation) {
@@ -112,11 +112,11 @@ class _BaseGiffyDialogState extends State<BaseGiffyDialog>
       _entryAnimation =
           Tween<Offset>(begin: _start, end: Offset(0.0, 0.0)).animate(
         CurvedAnimation(
-          parent: _animationController,
+          parent: _animationController!,
           curve: Curves.easeIn,
         ),
       )..addListener(() => setState(() {}));
-      _animationController.forward();
+      _animationController?.forward();
     }
   }
 
@@ -244,8 +244,8 @@ class _BaseGiffyDialogState extends State<BaseGiffyDialog>
       child: Container(
         transform: !_isDefaultEntryAnimation
             ? Matrix4.translationValues(
-                _entryAnimation.value.dx * width,
-                _entryAnimation.value.dy * width,
+                _entryAnimation!.value.dx * width,
+                _entryAnimation!.value.dy * width,
                 0,
               )
             : null,

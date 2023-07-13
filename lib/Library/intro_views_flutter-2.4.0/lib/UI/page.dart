@@ -6,7 +6,7 @@ import 'package:test_ios/Library/intro_views_flutter-2.4.0/lib/Models/page_view_
 /// This is the class which contains the Page UI.
 class PageIntro extends StatelessWidget {
   ///page details
-  final PageViewModel pageViewModel;
+  final PageViewModel? pageViewModel;
 
   ///percent visible of page
   final double percentVisible;
@@ -26,7 +26,7 @@ class PageIntro extends StatelessWidget {
     return new Container(
       padding: const EdgeInsets.all(8.0),
       width: double.infinity,
-      color: pageViewModel.pageColor,
+      color: pageViewModel?.pageColor,
       child: new Opacity(
         //Opacity is used to create fade in effect
         opacity: percentVisible,
@@ -50,21 +50,21 @@ class PageIntro extends StatelessWidget {
           flex: 4,
           child: new _ImagePageTransform(
             percentVisible: percentVisible,
-            pageViewModel: pageViewModel,
+            pageViewModel: pageViewModel!,
           ),
         ), //Transform
         Flexible(
           flex: 1,
           child: new _TitlePageTransform(
             percentVisible: percentVisible,
-            pageViewModel: pageViewModel,
+            pageViewModel: pageViewModel!,
           ),
         ), //Transform
         Flexible(
           flex: 2,
           child: new _BodyPageTransform(
             percentVisible: percentVisible,
-            pageViewModel: pageViewModel,
+            pageViewModel: pageViewModel!,
           ),
         ), //Transform
       ],
@@ -80,7 +80,7 @@ class PageIntro extends StatelessWidget {
         Expanded(
           child: new _ImagePageTransform(
             percentVisible: percentVisible,
-            pageViewModel: pageViewModel,
+            pageViewModel: pageViewModel!,
           ),
         ), //Transform
 
@@ -91,11 +91,11 @@ class PageIntro extends StatelessWidget {
             children: <Widget>[
               new _TitlePageTransform(
                 percentVisible: percentVisible,
-                pageViewModel: pageViewModel,
+                pageViewModel: pageViewModel!,
               ), //Transform
               new _BodyPageTransform(
                 percentVisible: percentVisible,
-                pageViewModel: pageViewModel,
+                pageViewModel: pageViewModel!,
               ), //Transform
             ],
           ), // Column
@@ -112,9 +112,9 @@ class _BodyPageTransform extends StatelessWidget {
   final PageViewModel pageViewModel;
 
   const _BodyPageTransform({
-    Key key,
-    @required this.percentVisible,
-    @required this.pageViewModel,
+    Key? key,
+    required this.percentVisible,
+    required this.pageViewModel,
   }) : super(key: key);
 
   @override
@@ -146,9 +146,9 @@ class _ImagePageTransform extends StatelessWidget {
   final PageViewModel pageViewModel;
 
   const _ImagePageTransform({
-    Key key,
-    @required this.percentVisible,
-    @required this.pageViewModel,
+    Key? key,
+    required this.percentVisible,
+    required this.pageViewModel,
   }) : super(key: key);
 
   @override
@@ -178,9 +178,9 @@ class _TitlePageTransform extends StatelessWidget {
   final PageViewModel pageViewModel;
 
   const _TitlePageTransform({
-    Key key,
-    @required this.percentVisible,
-    @required this.pageViewModel,
+    Key? key,
+    required this.percentVisible,
+    required this.pageViewModel,
   }) : super(key: key);
 
   @override

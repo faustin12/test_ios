@@ -60,7 +60,7 @@ class SplashScreen extends StatefulWidget {
 
 /// Component UI
 class _SplashScreenState extends State<SplashScreen> {
-  final FirebaseMessaging _messaging = FirebaseMessaging();
+  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
 
   @override
   void initState() {
@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool loggedIn = false;
 
   @override
-  SharedPreferences prefs;
+  late SharedPreferences prefs;
 
   ///
   /// Checking user is logged in or not logged in
@@ -118,7 +118,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// Navigate user if already login or no
   void NavigatorPage() {
-    FirebaseAuth.instance.authStateChanges().listen((User currentUser) {
+    FirebaseAuth.instance.authStateChanges().listen((User? currentUser) {
       if (currentUser == null) {
         Navigator.of(context).pushReplacement(
             PageRouteBuilder(pageBuilder: (_, __, ___) => onBoarding()));
@@ -127,12 +127,12 @@ class _SplashScreenState extends State<SplashScreen> {
             .collection("users")
             .doc(currentUser.uid)
             .get()
-            .then((DocumentSnapshot result) => Navigator.pushReplacement(
+            /*.then((DocumentSnapshot result) => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (context) => bottomNavBar(
                           idUser: currentUser.uid,
-                        ))))
+                        ))))*/
             .catchError((err) => print(err));
       }
     });

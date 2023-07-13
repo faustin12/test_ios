@@ -6,7 +6,7 @@ import 'package:test_ios/Library/intro_views_flutter-2.4.0/lib/Models/page_bubbl
 /// This class contains the UI for page bubble.
 class PageBubble extends StatelessWidget {
   //view model
-  final PageBubbleViewModel viewModel;
+  final PageBubbleViewModel? viewModel;
 
   //Constructor
   PageBubble({
@@ -28,25 +28,25 @@ class PageBubble extends StatelessWidget {
             decoration: new BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(0.0)),
               //Alpha is used to create fade effect for background color
-              color: viewModel.isHollow
+              color: viewModel!.isHollow!
                   ? Colors.white24
                   : Color(0xFF928CEF),
               border: new Border.all(
-                color: viewModel.isHollow
-                    ? viewModel.bubbleBackgroundColor.withAlpha(
-                    (0xFF * (0.1 - viewModel.activePercent)).round())
+                color: viewModel!.isHollow!
+                    ? viewModel!.bubbleBackgroundColor.withAlpha(
+                    (0xFF * (0.1 - viewModel!.activePercent!)).round())
                     : Colors.white10,
                 width: 2.0,
               ), //Border
             ), //BoxDecoration
             child: new Opacity(
-              opacity: viewModel.activePercent,
-              child: (viewModel.iconAssetPath != null &&
-                  viewModel.iconAssetPath != "")
+              opacity: viewModel!.activePercent!,
+              child: (viewModel?.iconAssetPath != null &&
+                  viewModel?.iconAssetPath != "")
               // ignore: conflicting_dart_import
                   ? new Image.asset(
-                viewModel.iconAssetPath,
-                color: viewModel.iconColor,
+                viewModel!.iconAssetPath!,
+                color: viewModel?.iconColor,
               )
                   : new Container(),
             ), //opacity

@@ -26,9 +26,9 @@ import 'base_dialog.dart';
 /// );
 class AssetGiffyDialog extends StatelessWidget {
   AssetGiffyDialog({
-    Key key,
-    @required this.image,
-    @required this.title,
+    Key? key,
+    required this.image,
+    required this.title,
     this.onOkButtonPressed,
     this.onCancelButtonPressed,
     this.description,
@@ -56,7 +56,7 @@ class AssetGiffyDialog extends StatelessWidget {
   final Text title;
 
   /// Description text.
-  final Text description;
+  final Text? description;
 
   /// Sets dialog to have only OK button.
   ///
@@ -73,12 +73,12 @@ class AssetGiffyDialog extends StatelessWidget {
   /// Text for OK button.
   ///
   /// Default is `OK`.
-  final Text buttonOkText;
+  final Text? buttonOkText;
 
   /// Text for cancel button
   ///
   /// Default is `Cancel`.
-  final Text buttonCancelText;
+  final Text? buttonCancelText;
 
   /// Color of OK button.
   ///
@@ -104,12 +104,12 @@ class AssetGiffyDialog extends StatelessWidget {
   ///
   /// If set to null, then the button will be disabled and by
   /// default will resemble a flat button in the Theme's `disabledColor`.
-  final VoidCallback onOkButtonPressed;
+  final VoidCallback? onOkButtonPressed;
 
   /// Callback function to be called on when Cancel button is pressed.
   ///
   /// By default (or if set to null) closes the Giffy Dialog via `Navigator.of(context).pop()`.
-  final VoidCallback onCancelButtonPressed;
+  final VoidCallback? onCancelButtonPressed;
 
   /// Defines how Giffy Dialog will enter the screen.
   ///
@@ -123,16 +123,16 @@ class AssetGiffyDialog extends StatelessWidget {
       imageWidget: image,
       cornerRadius: cornerRadius,
       title: title,
-      description: description,
+      description: description!,
       onlyOkButton: onlyOkButton,
       onlyCancelButton: onlyCancelButton,
       buttonCancelColor: buttonCancelColor,
       buttonRadius: buttonRadius,
-      buttonCancelText: buttonCancelText,
+      buttonCancelText: buttonCancelText!,
       buttonOkColor: buttonOkColor,
-      onOkButtonPressed: onOkButtonPressed,
-      onCancelButtonPressed: onCancelButtonPressed,
-      buttonOkText: buttonOkText,
+      onOkButtonPressed: onOkButtonPressed!,
+      onCancelButtonPressed: onCancelButtonPressed!,
+      buttonOkText: buttonOkText!,
       entryAnimation: entryAnimation,
     );
   }
