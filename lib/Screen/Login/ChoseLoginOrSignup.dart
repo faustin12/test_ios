@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:test_ios/Screen/Login/login.dart';
 import 'package:test_ios/Screen/Login/signUp.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+//import 'package:carousel_pro/carousel_pro.dart';
 
 class ChoseLogin extends StatefulWidget {
   @override

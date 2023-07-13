@@ -47,7 +47,7 @@ dependencies:
   firebase_auth: ^4.6.3
   font_awesome_flutter: ^10.4.0
   shared_preferences: ^2.2.0
-  carousel_pro: ^1.0.0
+  #carousel_pro: ^1.0.0
   flare_flutter: ^3.0.2
 
 dev_dependencies:
