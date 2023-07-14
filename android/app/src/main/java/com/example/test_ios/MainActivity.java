@@ -1,4 +1,4 @@
-package com.example.test_ios;
+package com.dikouba;
 
 import io.flutter.embedding.android.FlutterActivity;
 

@@ -1,0 +1,136 @@
+{
+  "project_info": {
+    "project_number": "330777794222",
+    "firebase_url": "https://dikouba-test.firebaseio.com",
+    "project_id": "dikouba-test",
+    "storage_bucket": "dikouba-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330777794222:android:080747efcd2a92d212bf3f",
+        "android_client_info": {
+          "package_name": "com.dikouba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330777794222-02h6r1rskvldign1sqvoe1lv2gs4n2u0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dikouba",
+            "certificate_hash": "29f9dc4c72e566f03a10687aa6b2ad0b07461d91"
+          }
+        },
+        {
+          "client_id": "330777794222-ghqel74341c3snm2ff0uv1ppk7d7tjrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAr_SqMefyCPhilOxiMfRfaXA9IqKV7kQ"
+        },
+        {
+          "current_key": "AIzaSyC-nDQAAWG_wh1IsIsEZbcmY5ZEyKMTkfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330777794222-ghqel74341c3snm2ff0uv1ppk7d7tjrb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "330777794222-ce2a8vsnl1b0h5kl9r1h0qnjfb9hh9m4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dikouba"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330777794222:android:ecb05d2498eb01f312bf3f",
+        "android_client_info": {
+          "package_name": "com.dikouba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330777794222-ghqel74341c3snm2ff0uv1ppk7d7tjrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAr_SqMefyCPhilOxiMfRfaXA9IqKV7kQ"
+        },
+        {
+          "current_key": "AIzaSyC-nDQAAWG_wh1IsIsEZbcmY5ZEyKMTkfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330777794222-ghqel74341c3snm2ff0uv1ppk7d7tjrb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "330777794222-ce2a8vsnl1b0h5kl9r1h0qnjfb9hh9m4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dikouba"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330777794222:android:92d5a9bbb51d5a1112bf3f",
+        "android_client_info": {
+          "package_name": "com.dikouba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330777794222-ghqel74341c3snm2ff0uv1ppk7d7tjrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAr_SqMefyCPhilOxiMfRfaXA9IqKV7kQ"
+        },
+        {
+          "current_key": "AIzaSyC-nDQAAWG_wh1IsIsEZbcmY5ZEyKMTkfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330777794222-ghqel74341c3snm2ff0uv1ppk7d7tjrb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "330777794222-ce2a8vsnl1b0h5kl9r1h0qnjfb9hh9m4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dikouba"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -67,6 +67,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'dikouba-test.appspot.com',
     androidClientId: '330777794222-02h6r1rskvldign1sqvoe1lv2gs4n2u0.apps.googleusercontent.com',
     iosClientId: '330777794222-iptht1luqq03kvqko2i2hm0e4oe8fke6.apps.googleusercontent.com',
-    iosBundleId: 'com.example.testIos',
+    iosBundleId: 'com.dikouba',
   );
 }

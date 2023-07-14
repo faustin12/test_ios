@@ -7,9 +7,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'Screen/Bottom_Nav_Bar/bottomNavBar.dart';
-import 'Screen/Login/OnBoarding.dart';
+//import 'Screen/Login/OnBoarding.dart';
 import 'dart:io' show Platform;
 import 'package:firebase_core/firebase_core.dart';
+import 'package:dikouba/activity/onboarding_activity.dart';
+
+import 'activity/splashscreen_activity.dart';
+
 
 /// Run first apps open
 void main() async {
@@ -35,7 +39,7 @@ class myApp extends StatelessWidget {
       statusBarColor: Colors.transparent, //or set color with: Color(0xFF0000FF)
     ));
     return new MaterialApp(
-      title: "Event Country",
+      title: "Dikouba",
       theme: ThemeData(
           brightness: Brightness.light,
           backgroundColor: Colors.white,
@@ -54,6 +58,7 @@ class myApp extends StatelessWidget {
   }
 }
 
+/*
 /// Component UI
 class SplashScreen extends StatefulWidget {
   @override
@@ -121,7 +126,10 @@ class _SplashScreenState extends State<SplashScreen> {
   /// Navigate user if already login or no
   void NavigatorPage() {
     Navigator.of(context).pushReplacement(
-        PageRouteBuilder(pageBuilder: (_, __, ___) => onBoarding()));
+        PageRouteBuilder(pageBuilder: (_, __, ___) => OnBoardingActivity(
+          /*analytics: widget.analytics,
+          observer: widget.observer,*/
+        )));
     /*FirebaseAuth.instance.authStateChanges().listen((User? currentUser) {
       if (currentUser == null) {
         Navigator.of(context).pushReplacement(
@@ -190,3 +198,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+*/
