@@ -73,13 +73,66 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/image/icon.png
+    - assets/image/onBoarding1.png
+    - assets/image/onBoarding2.png
+    - assets/image/onBoarding3.png
+    - assets/image/article1.jpg
+    - assets/image/IlustrasiCart.png
+    - assets/image/image_01.png
+    - assets/image/image_02.png
+    - assets/image/banner.png
+    - assets/image/backgroundBanner.png
+    - assets/image/logo.png
+    - assets/image/news.png
+    - assets/gif/event1.gif
+    - assets/gif/event2.gif
+    - assets/gif/event3.gif
+    - assets/image/emptyProfilePicture.png
+    - assets/image/cover.png
+    - assets/icon/notification.png
+    - assets/icon/creditAcount.png
+    - assets/icon/fashion.png
+    - assets/icon/chat.png
+    - assets/icon/truck.png
+    - assets/icon/setting.png
+    - assets/icon/callcenter.png
+    - assets/icon/aboutapp.png
+    - assets/icon/otomotif.png
+    - assets/icon/pc.png
+    - assets/icon/sport.png
+    - assets/icon/ticket.png
+    - assets/icon/logout.png
+    - assets/icon/calendar.png
+    - assets/icon/bookmart.png
+    - assets/icon/canada.png
+    - assets/icon/editProfile.png
+    - assets/icon/england.png
+    - assets/icon/italia.png
+    - assets/icon/paris.png
+    - assets/icon/spanyol.png
+    - assets/icon/thailand.png
+    - assets/image/searching.png
+    - assets/image/noInternet.png
+    - assets/icon/createEvent.png
+    - assets/icon/yourEvent.png
+    - assets/image/category_country/country1.png
+    - assets/image/category_country/country2.png
+    - assets/image/category_country/country3.png
+    - assets/image/category_country/country4.png
+    - assets/image/category_country/country5.png
+    - assets/image/category_country/country6.png
+
+
+
   # To add assets to your application, add an assets section, like this:
   # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  #  - images/a_dot_burr.jpeg
+  #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
+  # https://flutter.dev/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
@@ -101,5 +154,78 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: Arial
+      fonts:
+        - asset: assets/font/ARLRDBD.ttf
+
+    - family: Sans
+      fonts:
+        - asset: assets/font/OpenSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/OpenSans-Bold.ttf
+          weight: 700
+        - asset: assets/font/OpenSans-Semibold.ttf
+          weight: 600
+        - asset: assets/font/OpenSans-Regular.ttf
+          weight: 500
+        - asset: assets/font/OpenSans-Light.ttf
+          weight: 400
+
+    - family: Popins
+      fonts:
+        - asset: assets/font/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/font/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/font/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/font/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/Poppins-Bold.ttf
+          weight: 700
+    - family: CustomIcons
+      fonts:
+        - asset: assets/image/CustomIcons.ttf
+    - family: Gotik
+      fonts:
+        - asset: assets/font/GOTHIC.TTF
+          weight: 400
+        - asset: assets/font/GOTHICB.TTF
+          weight: 600
+    - family: Sofia
+      fonts:
+        - asset: assets/font/Sofia/SofiaProBold.otf
+          weight: 900
+        - asset: assets/font/Sofia/SofiaProSemiBold.otf
+          weight: 800
+        - asset: assets/font/Sofia/SofiaProMedium.otf
+          weight: 700
+        - asset: assets/font/Sofia/SofiaProRegular.otf
+          weight: 600
+        - asset: assets/font/Sofia/SofiaProLight.otf
+          weight: 500
+        - asset: assets/font/Sofia/SofiaProExtraLight.otf
+          weight: 400
+        - asset: assets/font/Sofia/SofiaProUltraLight.otf
+          weight: 300
+    - family: category
+      fonts:
+        - asset: assets/custom_icon/ic_category.ttf
+    - family: file
+      fonts:
+        - asset: assets/custom_icon/ic_file.ttf
+    - family: hearth
+      fonts:
+        - asset: assets/custom_icon/ic_hearth.ttf
+    - family: home
+      fonts:
+        - asset: assets/custom_icon/ic_home.ttf
+    - family: profile
+      fonts:
+        - asset: assets/custom_icon/ic_profile.ttf  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -14,7 +14,9 @@ import 'package:firebase_core/firebase_core.dart';
 /// Run first apps open
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    //options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(myApp());
 }
 
@@ -118,7 +120,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// Navigate user if already login or no
   void NavigatorPage() {
-    FirebaseAuth.instance.authStateChanges().listen((User? currentUser) {
+    Navigator.of(context).pushReplacement(
+        PageRouteBuilder(pageBuilder: (_, __, ___) => onBoarding()));
+    /*FirebaseAuth.instance.authStateChanges().listen((User? currentUser) {
       if (currentUser == null) {
         Navigator.of(context).pushReplacement(
             PageRouteBuilder(pageBuilder: (_, __, ___) => onBoarding()));
@@ -135,7 +139,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         ))))*/
             .catchError((err) => print(err));
       }
-    });
+    });*/
   }
 
   /// Code Create UI Splash Screen
