@@ -13,6 +13,8 @@ import 'package:dikouba/utils/SizeConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import 'home_activity.dart';
 //import 'package:provider/provider.dart';
 
 //import 'package:firebase_analytics/firebase_analytics.dart';
@@ -250,13 +252,13 @@ class WelcomeActivityState extends State<WelcomeActivity> {
                       )));*/
         } else {
           insertUser(user);
-          /*Navigator.pushReplacement(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: (context) => HomeActivity(
                         //analytics: widget.analytics,
                         //observer: widget.observer,
-                      )));*/
+                      )));
         }
       } else {
         DikoubaUtils.toast_error(

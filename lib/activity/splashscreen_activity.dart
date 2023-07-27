@@ -9,6 +9,8 @@ import 'package:dikouba/utils/DikoubaUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'home_activity.dart';
+
 //import 'package:firebase_analytics/firebase_analytics.dart';
 //import 'package:firebase_analytics/observer.dart';
 
@@ -71,10 +73,10 @@ class _SplashScreenState extends State<SplashScreen> {
             builder: (context) =>  userRows.length == 0 ? OnBoardingActivity(
               //analytics: widget.analytics,
               //observer: widget.observer,
-            ) : OnBoardingActivity()/*HomeActivity(
+            ) : HomeActivity(
               //analytics: widget.analytics,
               //observer: widget.observer,
-            )*/),
+            )),
     );
   }
 

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,6 +13,8 @@ import 'dart:io' show Platform;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:dikouba/activity/onboarding_activity.dart';
 
+import 'AppTheme.dart';
+import 'AppThemeNotifier.dart';
 import 'activity/splashscreen_activity.dart';
 
 
@@ -21,7 +24,11 @@ void main() async {
   await Firebase.initializeApp(
     //options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(myApp());
+  //runApp(myApp());
+  runApp(ChangeNotifierProvider<AppThemeNotifier>(
+    create: (context) => AppThemeNotifier(),
+    child: myApp(),
+  ));
 }
 
 /// Set orienttation
@@ -38,6 +45,47 @@ class myApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.transparent, //or set color with: Color(0xFF0000FF)
     ));
+
+    return Consumer<AppThemeNotifier>(
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
+        /*UserModel userModel = new UserModel(
+        nbre_followers: '0',
+            id_users: 'NekuDL6WO6eiX08LY8jmiUCkIot2',
+            email: 'youmsijunior@gmail.com',
+            nbre_following: '0',
+            name: 'ROMUALD JUNIOR YOUMSI MOUMBE',
+            password: 'NekuDL6WO6eiX08LY8jmiUCkIot2',
+            photo_url: 'https://lh3.googleusercontent.com/a-/AOh14GghjI3-geYdM4kHUOllmG39EUQBabouB9mjnUMQFw=s96-c',
+            email_verified: 'true',
+            phone: '',
+            password_hash: 'TmVrdURMNldPNmVpWDA4TFk4am1pVUNrSW90Mg==',
+            uid: 'NekuDL6WO6eiX08LY8jmiUCkIot2'
+
+        );*/
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
+          /*localizationsDelegates: const [
+              location_picker.S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+          supportedLocales: const <Locale>[
+              Locale('en', ''),
+              Locale('fr', ''),
+          ],*/
+          // home: RegisterActivity(userModel: userModel),);
+          // navigatorObservers: <NavigatorObserver>[observer],
+          home: SplashScreen(),
+          // Move splash screen to ChoseLogin Layout
+          // Routes
+          routes: <String, WidgetBuilder>{
+            "login": (BuildContext context) => new SplashScreen()
+          },
+        );
+      },
+    );
     return new MaterialApp(
       title: "Dikouba",
       theme: ThemeData(

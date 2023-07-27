@@ -4,6 +4,8 @@ import 'dart:async';
 //import 'package:dikouba/activity/login_activity.dart';
 //import 'package:dikouba/activity/register_activity.dart';
 //import 'package:dikouba/activity/signup_activity.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dikouba/activity/signup_activity.dart';
 import 'package:dikouba/activity/welcome_activity.dart';
 import 'package:dikouba/model/user_model.dart';
 import 'package:dikouba/provider/api_provider.dart';
@@ -13,6 +15,9 @@ import 'package:dikouba/utils/SizeConfig.dart';
 //import 'package:firebase_auth_ui/firebase_auth_ui.dart';
 //import 'package:firebase_auth_ui/providers.dart';
 import 'package:flutter/material.dart';
+
+import 'home_activity.dart';
+import 'login_activity.dart';
 
 
 //import 'package:firebase_analytics/firebase_analytics.dart';
@@ -34,7 +39,7 @@ class ChoseLoginSignupActivity extends StatefulWidget {
 class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with TickerProviderStateMixin {
   static final String TAG = 'ChoseLoginSignupActivityState';
   /// Declare Animation
-  late AnimationController animationController;
+  AnimationController? animationController;
   var tapLogin = 0;
   var tapSignup = 0;
   bool _is_creating = false;
@@ -92,17 +97,24 @@ class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with
   @override
   void dispose() {
     super.dispose();
-    animationController.dispose();
+    animationController?.dispose();
   }
 
   /// Play animation set forward reverse
   Future<Null> _Playanimation() async {
     try {
-      await animationController.forward();
-      await animationController.reverse();
+      await animationController?.forward();
+      await animationController?.reverse();
     } on TickerCanceled {}
   }
 
+  List<AssetImage> carouselImages = [
+    AssetImage("assets/carousel/event1.gif",),
+    AssetImage("assets/carousel/event1_img.webp",),
+    AssetImage("assets/carousel/event2.gif",),
+    AssetImage("assets/carousel/event2_img.webp",),
+    AssetImage("assets/carousel/event3.gif",)
+  ];
   /// Component Widget layout UI
   @override
   Widget build(BuildContext context) {
@@ -117,9 +129,44 @@ class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with
           ///
           /// Set background image slider
           ///
-          /*Container(
+          Container(
             color: Colors.white,
-            child: new Carousel(
+            child: new CarouselSlider(
+                items: carouselImages.map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                          child: Center(
+                              child: Image(
+                                fit: BoxFit.cover,
+                                height: MediaQuery.of(context).size.height,
+                                image: i,
+                              )
+                          )
+                      );
+                    },
+                  );
+                }).toList(),
+                options: CarouselOptions(
+                  height : MediaQuery.of(context).size.height,
+                  viewportFraction: 1.0,
+                  enlargeCenterPage: false,
+                  //aspectRatio: 16/9,
+                  //viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  //enlargeCenterPage: true,
+                  //enlargeFactor: 0.3,
+                  //onPageChanged: callbackFunction,
+                  scrollDirection: Axis.horizontal,
+                )
+            )
+            /*Carousel(
               boxFit: BoxFit.cover,
               autoplay: true,
               animationDuration: Duration(milliseconds: 300),
@@ -145,8 +192,8 @@ class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with
                   "assets/carousel/event3.gif",
                 ),
               ],
-            ),
-          ),*/
+            ),*/
+          ),
           Container(
             child: Container(
               /// Set gradient color in image (Click to open code)
@@ -275,23 +322,23 @@ class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with
   }
 
   void gotoSignUp() {
-    /*Navigator.pushReplacement(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) => SignUpActivity(
               //analytics: widget.analytics,
               //observer: widget.observer,
-            )));*/
+            )));
   }
 
   void gotoLogin() {
-    /*Navigator.pushReplacement(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) => LoginActivity(
               //analytics: widget.analytics,
               //observer: widget.observer,
-            )));*/
+            )));
   }
 
   void firebaseAuth() async {
@@ -341,13 +388,13 @@ class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with
           _is_creating = false;
         });
 
-        /*Navigator.pushReplacement(
+        Navigator.pushReplacement(
             context,
             MaterialPageRoute(
                 builder: (context) => HomeActivity(
                   //analytics: widget.analytics,
                   //observer: widget.observer,
-                )));*/
+                )));
         return;
       } else {
         createUserAccountNext(userModel);
