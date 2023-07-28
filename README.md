@@ -3,7 +3,8 @@
 A new Flutter project.
 
 Link validity 01/08/2023
-https://ioair.link/tyhax7
+Store : https://ioair.link/tyhax7
+Dev : https://ioair.link/xcjba3
 
 ## Getting Started
 
