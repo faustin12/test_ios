@@ -5,6 +5,7 @@ import 'dart:async';
 //import 'package:dikouba/activity/register_activity.dart';
 //import 'package:dikouba/activity/signup_activity.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dikouba/activity/register_activity.dart';
 import 'package:dikouba/activity/signup_activity.dart';
 import 'package:dikouba/activity/welcome_activity.dart';
 import 'package:dikouba/model/user_model.dart';
@@ -418,13 +419,13 @@ class ChoseLoginSignupActivityState extends State<ChoseLoginSignupActivity> with
           _is_creating = false;
         });
 
-        /*Navigator.pushReplacement(
+        Navigator.pushReplacement(
             context,
             MaterialPageRoute(
                 builder: (context) => RegisterActivity(userModel: user,
                   //analytics: widget.analytics,
                   //observer: widget.observer,
-                )));*/
+                )));
 
       } else {
         DikoubaUtils.toast_error(
@@ -611,11 +612,11 @@ class _AnimationSplashSignupState extends State<AnimationSplashSignup> {
   Widget build(BuildContext context) {
     widget.animationController.addListener(() {
       if (widget.animation.isCompleted) {
-        /*Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => new HomeActivity(
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => HomeActivity( //new HomeActivity(
               //analytics: widget.analytics,
               //observer: widget.observer,
-            )));*/
+            )));
       }
     });
     return AnimatedBuilder(

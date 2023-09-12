@@ -13,7 +13,7 @@ import 'package:dikouba/utils/DikoubaUtils.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 
-const BASE_URL = "https://dikouba-test.uc.r.appspot.com/"; //"https://us-central1-dikouba-test.cloudfunctions.net/";
+const BASE_URL = "https://api.dikouba.com/";//"https://dikouba-test.uc.r.appspot.com/"; //"https://us-central1-dikouba-test.cloudfunctions.net/";
 
 BaseOptions options = new BaseOptions(
   baseUrl: BASE_URL,
