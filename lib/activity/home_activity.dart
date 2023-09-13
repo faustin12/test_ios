@@ -1,18 +1,16 @@
 import 'package:dikouba/AppTheme.dart';
 import 'package:dikouba/AppThemeNotifier.dart';
-//import 'package:dikouba/activity/annoncer/eventnewannoncer_activity.dart';
+import 'package:dikouba/activity/annoncer/eventnewannoncer_activity.dart';
 import 'package:dikouba/activity/choseloginsignup_activity.dart';
-//import 'package:dikouba/activity/register_activity.dart';
-//import 'package:dikouba/activity/user/userprofil_activity.dart';
+import 'package:dikouba/activity/register_activity.dart';
+import 'package:dikouba/activity/user/userprofil_activity.dart';
 import 'package:dikouba/activity/welcome_activity.dart';
-//import 'package:dikouba/fragment/EventAgendaScreen.dart';
-//import 'package:dikouba/fragment/EventCategoriseScreen.dart';
-//import 'package:dikouba/fragment/EventCreateScreen.dart';
-//import 'package:dikouba/fragment/EventHomeScreen.dart';
-//import 'package:dikouba/fragment/EventMapScreen.dart';
-//import 'package:dikouba/fragment/EventProfileScreen.dart';
-//import 'package:dikouba/fragment/EventSondagesScreen.dart';
-//import 'package:dikouba/fragment/EventUpcomingScreen.dart';
+import 'package:dikouba/fragment/EventAgendaScreen.dart';
+import 'package:dikouba/fragment/EventCreateScreen.dart';
+import 'package:dikouba/fragment/EventHomeScreen.dart';
+import 'package:dikouba/fragment/EventMapScreen.dart';
+import 'package:dikouba/fragment/EventProfileScreen.dart';
+import 'package:dikouba/fragment/EventSondagesScreen.dart';
 import 'package:dikouba/model/user_model.dart';
 import 'package:dikouba/provider/databasehelper_provider.dart';
 import 'package:dikouba/utils/DikoubaColors.dart';
@@ -22,6 +20,8 @@ import 'package:dikouba/utils/SizeConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../fragment/EventLiveScreen.dart';
 
 //import 'package:firebase_analytics/firebase_analytics.dart';
 //import 'package:firebase_analytics/observer.dart';
@@ -558,11 +558,11 @@ class HomeActivityState extends State<HomeActivity>
               controller: _tabController,
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
-                //EventHomeScreen(_userModel,),
-                //EventAgendaScreen(_userModel,),
-                //EventMapScreen(),
-                //EventCategoriseScreen(),
-                // EventProfileScreen(_userModel)
+                EventHomeScreen(_userModel!,),
+                EventAgendaScreen(_userModel!,),
+                EventMapScreen(),
+                EventLiveScreen()
+                //EventProfileScreen(_userModel!)
               ],),
           )
           : Scaffold(

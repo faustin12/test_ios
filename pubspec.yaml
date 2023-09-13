@@ -81,6 +81,7 @@ dependencies:
   webview_flutter_android: ^3.10.0
   webview_flutter_wkwebview: ^3.7.4
   url_launcher: ^6.1.14
+  geocode: ^1.0.3
 
 dev_dependencies:
   flutter_test:
