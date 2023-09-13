@@ -9,6 +9,7 @@ import 'package:dikouba/fragment/EventAgendaScreen.dart';
 import 'package:dikouba/fragment/EventCreateScreen.dart';
 import 'package:dikouba/fragment/EventHomeScreen.dart';
 import 'package:dikouba/fragment/EventMapScreen.dart';
+import 'package:dikouba/fragment/EventMesEvenementsScreen.dart';
 import 'package:dikouba/fragment/EventProfileScreen.dart';
 import 'package:dikouba/fragment/EventSondagesScreen.dart';
 import 'package:dikouba/model/user_model.dart';
@@ -22,6 +23,12 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:provider/provider.dart';
 
 import '../fragment/EventLiveScreen.dart';
+import '../fragment/EventMesFavorisScreen.dart';
+import '../fragment/EventMesTicketsScreen.dart';
+import '../fragment/EventScanTicketScreen.dart';
+import '../fragment/UserMesNotificationsScreen.dart';
+import '../model/notification_model.dart';
+import '../model/sondage_model.dart';
 
 //import 'package:firebase_analytics/firebase_analytics.dart';
 //import 'package:firebase_analytics/observer.dart';
@@ -100,6 +107,13 @@ class HomeActivityState extends State<HomeActivity>
     // and the current route shows up.
     _setCurrentScreen();
   }
+
+  late List<NotificationModel> _notifications;
+  int _notifCount=0;
+
+  late List<SondageModel> _sondages;
+  int _sondagesCount=0;
+
   @override
   void initState() {
     queryUser();
@@ -309,6 +323,278 @@ class HomeActivityState extends State<HomeActivity>
                       },
                       leading: Icon(
                         Icons.home,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        'Accueil',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState
+                              ?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = EventMyEventScreen(
+                            _userModel!,
+                            //analytics: widget.analytics,
+                            //observer: widget.observer,
+                          );
+                        });
+                      },
+                      leading: Icon(
+                        Icons.event_note,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        'Mes évènements',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState
+                              ?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = EventSondagesScreen(
+                            _userModel!,
+                            //analytics: widget.analytics,
+                            //observer: widget.observer,
+                          );
+                        });
+                      },
+                      leading: Icon(
+                        Icons.trending_up_rounded,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      trailing: (_sondagesCount>0) ? Container(
+                        alignment: Alignment.center,
+                        width: 22,//MySize.size6,
+                        height: 22,//MySize.size6,
+                        decoration: BoxDecoration(
+                            color: customAppTheme!.colorError,
+                            shape: BoxShape.circle),
+                        child: Text(_sondagesCount.toString(), style: AppTheme.getTextStyle(
+                            themeData!.textTheme.caption!,
+                            fontWeight: 600,
+                            letterSpacing: 0,
+                            fontSize: 12,
+                            color: Colors.white),),
+                      ) : Container(child:Text("")),
+                      title: Text(
+                        'Mes sondages',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState
+                              ?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = UserMesNotificationsScreen(
+                            _userModel!,
+                            //analytics: widget.analytics,
+                            //observer: widget.observer,
+                          );
+                        });
+                      },
+                      leading: Icon(
+                        Icons.notifications,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        'Notifications',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState
+                              ?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = EventMesTicketsScreen(
+                            _userModel!,
+                            //analytics: widget.analytics,
+                            //observer: widget.observer,
+                          );
+                        });
+                      },
+                      leading: Icon(
+                        Icons.shopping_cart,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      trailing: (_notifCount>0) ? Container(
+                        alignment: Alignment.center,
+                        width: 22,//MySize.size6,
+                        height: 22,//MySize.size6,
+                        decoration: BoxDecoration(
+                            color: customAppTheme!.colorError,
+                            shape: BoxShape.circle),
+                        child: Text(_notifCount.toString(), style: AppTheme.getTextStyle(
+                            themeData!.textTheme.caption!,
+                            fontWeight: 600,
+                            letterSpacing: 0,
+                            fontSize: 12,
+                            color: Colors.white),),
+                      ) : Container(child:Text("")),
+                      title: Text(
+                        'Mes Achats',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState
+                              ?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = EventMesFavorisScreen(
+                            _userModel!,
+                            //analytics: widget.analytics,
+                            //observer: widget.observer,
+                          );
+                        });
+                      },
+                      /*onTap: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/Favorites');
+                                    },*/
+                      leading: Icon(
+                        Icons.favorite,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        "Mes Favoris",
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState
+                              ?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = EventScanTicketScreen(
+                            _userModel!,
+                            //analytics: widget.analytics,
+                            //observer: widget.observer,
+                          );
+                        });
+                      },
+                      leading: Icon(
+                        Icons.add_a_photo,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        'Scan tickets',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      title: Text(
+                        "Autres",
+                        style:
+                        Theme.of(context).textTheme.bodyText2,
+                      ),
+                      trailing: Icon(
+                        Icons.remove,
+                        color: Theme.of(context)
+                            .focusColor
+                            .withOpacity(0.3),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        gotoDevenirAnnoncer();
+                      },
+                      leading: Icon(
+                        Icons.admin_panel_settings_rounded,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        (_userModel?.id_annoncers == null ||
+                            _userModel?.id_annoncers == "")
+                            ? 'Devenir annonceur'
+                            : 'Modifier annonceur',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        // Navigator.of(context).pop();
+                        signOut(context);
+                      },
+                      leading: Icon(
+                        Icons.logout,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        'Se déconnecter',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/Help');
+                      },
+                      leading: Icon(
+                        Icons.help,
+                        color: DikoubaColors.blue[
+                        'pri'], //Theme.of(context).focusColor.withOpacity(1),
+                      ),
+                      title: Text(
+                        'Support',
+                        style:
+                        Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      title: Text(
+                        "Dikouba 1.0.4",
+                        style:
+                        Theme.of(context).textTheme.bodyText2,
+                      ),
+                      trailing: Icon(
+                        Icons.remove,
+                        color: Theme.of(context)
+                            .focusColor
+                            .withOpacity(0.3),
+                      ),
+                    ),
+                    /*ListTile(
+                      onTap: () {
+                        setState(() {
+                          _scaffoldKey.currentState?.openEndDrawer();
+                          _showTabview = true;
+                          _bodyCustom = Container();
+                        });
+                      },
+                      leading: Icon(
+                        Icons.home,
                         color: Theme.of(context).focusColor.withOpacity(1),
                       ),
                       title: Text(
@@ -322,7 +608,7 @@ class HomeActivityState extends State<HomeActivity>
                         setState(() {
                           _scaffoldKey.currentState?.openEndDrawer();
                           _showTabview = false;
-                          //_bodyCustom = EventUpcomingScreen(_userModel,);
+                          _bodyCustom = EventMyEventScreen(_userModel!);
                         });
                       },
                       leading: Icon(
@@ -353,7 +639,12 @@ class HomeActivityState extends State<HomeActivity>
                     ),
                     ListTile(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/Notification', arguments: 0);
+                        //Navigator.of(context).pushNamed('/Notification', arguments: 0);
+                        setState(() {
+                          _scaffoldKey.currentState?.openEndDrawer();
+                          _showTabview = false;
+                          _bodyCustom = UserMesNotificationsScreen(_userModel!,);
+                        });
                       },
                       leading: Icon(
                         Icons.notifications,
@@ -373,7 +664,7 @@ class HomeActivityState extends State<HomeActivity>
                         color: Theme.of(context).focusColor.withOpacity(1),
                       ),
                       title: Text(
-                        'Locl mall',
+                        'Mes Tickets',
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ),
@@ -454,7 +745,7 @@ class HomeActivityState extends State<HomeActivity>
                         Icons.remove,
                         color: Theme.of(context).focusColor.withOpacity(0.3),
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               ),

@@ -22,7 +22,7 @@ import 'package:dikouba/utils/SizeConfig.dart';
 //import 'package:firebase_auth_ui/firebase_auth_ui.dart';
 //import 'package:firebase_auth_ui/providers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:flutter_geocoder/geocoder.dart';
 //import 'package:google_map_location_picker/google_map_location_picker.dart';

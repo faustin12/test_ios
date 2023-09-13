@@ -17,7 +17,7 @@ import 'package:dikouba/utils/DikoubaColors.dart';
 import 'package:dikouba/utils/DikoubaUtils.dart';
 import 'package:dikouba/utils/SizeConfig.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';

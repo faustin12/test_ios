@@ -16,7 +16,7 @@ import 'package:dikouba/utils/DikoubaColors.dart';
 import 'package:dikouba/utils/DikoubaUtils.dart';
 import 'package:dikouba/utils/SizeConfig.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
