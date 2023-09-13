@@ -339,7 +339,7 @@ class HomeActivityState extends State<HomeActivity>
                         setState(() {
                           _scaffoldKey.currentState?.openEndDrawer();
                           _showTabview = false;
-                          //_bodyCustom = EventSondagesScreen(_userModel,);
+                          _bodyCustom = EventSondagesScreen(_userModel!,);
                         });
                       },
                       leading: Icon(
@@ -635,7 +635,7 @@ class HomeActivityState extends State<HomeActivity>
                         setState(() {
                           _scaffoldKey.currentState?.openEndDrawer();
                           _showTabview = false;
-                          //_bodyCustom = EventSondagesScreen(_userModel,);
+                          _bodyCustom = EventSondagesScreen(_userModel!,);
                         });
                       },
                       leading: Icon(
@@ -859,7 +859,7 @@ class HomeActivityState extends State<HomeActivity>
   }
 
   void gotoUpdateUserprofile() {
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfileActivity(_userModel,)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfileActivity(_userModel!,)));
   }
 
   void signOut(BuildContext buildContext) async {
@@ -908,7 +908,7 @@ class HomeActivityState extends State<HomeActivity>
   }
 
   void gotoDevenirAnnoncer()async {
-    //var resAc= await Navigator.push(context, MaterialPageRoute(builder: (context) => EvenNewAnnoncerActivity(_userModel,)));
+    var resAc= await Navigator.push(context, MaterialPageRoute(builder: (context) => EvenNewAnnoncerActivity(_userModel!,)));
     queryUser();
   }
 }
