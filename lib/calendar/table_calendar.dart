@@ -57,7 +57,7 @@ class TableCalendar extends StatefulWidget {
 
   /// Called whenever any unavailable day gets tapped.
   /// Replaces `onDaySelected` for those days.
-  final VoidCallback onUnavailableDaySelected;
+  final VoidCallback? onUnavailableDaySelected;
 
   /// Called whenever the range of visible days changes.
   final OnVisibleDaysChanged onVisibleDaysChanged;
@@ -73,11 +73,11 @@ class TableCalendar extends StatefulWidget {
 
   /// The first day of `TableCalendar`.
   /// Days before it will use `unavailableStyle` and run `onUnavailableDaySelected` callback.
-  final DateTime startDay;
+  final DateTime? startDay;
 
   /// The last day of `TableCalendar`.
   /// Days after it will use `unavailableStyle` and run `onUnavailableDaySelected` callback.
-  final DateTime endDay;
+  final DateTime? endDay;
 
   /// `CalendarFormat` which will be displayed first.
   final CalendarFormat initialCalendarFormat;
@@ -86,7 +86,7 @@ class TableCalendar extends StatefulWidget {
   /// Use if you need total programmatic control over `TableCalendar`'s format.
   ///
   /// Makes `initialCalendarFormat` and `availableCalendarFormats` obsolete.
-  final CalendarFormat forcedCalendarFormat;
+  final CalendarFormat? forcedCalendarFormat;
 
   /// `Map` of `CalendarFormat`s and `String` names associated with them.
   /// Those `CalendarFormat`s will be used by internal logic to manage displayed format.
@@ -106,7 +106,7 @@ class TableCalendar extends StatefulWidget {
   final bool headerVisible;
 
   /// Used for setting the height of `TableCalendar`'s rows.
-  final double rowHeight;
+  final double? rowHeight;
 
   /// Used to enable animations for programmatically set `selectedDay`.
   /// Most of the time it should be `false`.
@@ -148,20 +148,20 @@ class TableCalendar extends StatefulWidget {
     this.events = const {},
     this.holidays = const {},
     required this.onDaySelected,
-    required this.onUnavailableDaySelected,
+    this.onUnavailableDaySelected,
     required this.onVisibleDaysChanged,
     required this.selectedDay,
-    required this.startDay,
-    required this.endDay,
+    this.startDay,
+    this.endDay,
     this.initialCalendarFormat = CalendarFormat.month,
-    required this.forcedCalendarFormat,
+    this.forcedCalendarFormat,
     this.availableCalendarFormats = const {
       CalendarFormat.month: 'Month',
       CalendarFormat.twoWeeks: '2 weeks',
       CalendarFormat.week: 'Week',
     },
     this.headerVisible = true,
-    required this.rowHeight,
+    this.rowHeight,
     this.animateProgSelectedDay = false,
     this.formatAnimation = FormatAnimation.slide,
     this.startingDayOfWeek = StartingDayOfWeek.sunday,
@@ -275,13 +275,13 @@ class _TableCalendarState extends State<TableCalendar> with SingleTickerProvider
 
   void _onUnavailableDaySelected() {
     if (widget.onUnavailableDaySelected != null) {
-      widget.onUnavailableDaySelected();
+      widget.onUnavailableDaySelected!();
     }
   }
 
   bool _isDayUnavailable(DateTime day) {
-    return (widget.startDay != null && day.isBefore(widget.startDay)) ||
-        (widget.endDay != null && day.isAfter(widget.endDay));
+    return (widget.startDay != null && day.isBefore(widget.startDay!)) ||
+        (widget.endDay != null && day.isAfter(widget.endDay!));
   }
 
   @override

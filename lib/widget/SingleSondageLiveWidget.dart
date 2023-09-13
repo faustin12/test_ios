@@ -7,9 +7,9 @@ import 'package:dikouba/utils/DikoubaColors.dart';
 import 'package:dikouba/utils/SizeConfig.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:percent_indicator/percent_indicator.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
-/*
+
 class SingleSondageLiveWidget extends StatefulWidget {
   CustomAppTheme customAppTheme;
   SondageModel sondageModel;
@@ -71,7 +71,7 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
                   //padding: EdgeInsets.symmetric(horizontal: MySize.size8, vertical: MySize.size6),
                   color: themeData.primaryColor,
                   child: Text(
-                    "${widget.sondageModel.evenements.title == null ? '' : widget.sondageModel.evenements.title}",
+                    "${widget.sondageModel.evenements?.title == null ? '' : widget.sondageModel.evenements?.title}",
                     maxLines: 1,
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.ellipsis,
@@ -276,12 +276,12 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
         SondageModel sondageModel = SondageModel.fromJson(responseSdage.data);
 
         double total = 0;
-        for (int i = 0; i < sondageModel.reponses.length; i++) {
-          total += double.parse(sondageModel.reponses[i].nombre_vote);
+        for (int i = 0; i < sondageModel.reponses!.length; i++) {
+          total += double.parse(sondageModel.reponses![i]!.nombre_vote);
           // print("${TAG}:findDetailSondage ${sondageModel.reponses.length} totalVoteValeur = ${sondageModel.reponses[i].nombre_vote}");
         }
         print(
-            "${TAG}:findDetailSondage ${sondageModel.reponses.length} totalVote = $total");
+            "${TAG}:findDetailSondage ${sondageModel.reponses!.length} totalVote = $total");
 
         if (!mounted) return;
         setState(() {
@@ -307,11 +307,11 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
   void checkHasVote() {
     bool hasVote = false;
     String? idReponseVotre;
-    for (int i = 0; i < widget.sondageModel.reponsesusers.length; i++) {
-      if (widget.sondageModel.reponsesusers[i].id_users ==
+    for (int i = 0; i < widget.sondageModel.reponsesusers!.length; i++) {
+      if (widget.sondageModel.reponsesusers![i]!.id_users ==
           widget.userModel.id_users) {
         hasVote = true;
-        idReponseVotre = widget.sondageModel.reponsesusers[i].id_reponses;
+        idReponseVotre = widget.sondageModel.reponsesusers![i]!.id_reponses;
         break;
       }
     }
@@ -329,7 +329,7 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
     API
         .addLigneSondage(
             sondageReponseModel.id_evenements,
-            widget.userModel.id_users,
+            widget.userModel.id_users!,
             sondageReponseModel.id_sondages,
             sondageReponseModel.id_reponses,
             sondageReponseModel.valeur)
@@ -359,4 +359,3 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
     });
   }
 }
-*/

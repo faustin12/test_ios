@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:dikouba/AppTheme.dart';
 import 'package:dikouba/AppThemeNotifier.dart';
-//import 'package:dikouba/activity/dialogs/ShowPostCommentsDialog.dart';
-//import 'package:dikouba/activity/dialogs/ShowPostFavouritesDialog.dart';
+import 'package:dikouba/activity/dialogs/ShowPostCommentsDialog.dart';
+import 'package:dikouba/activity/dialogs/ShowPostFavouritesDialog.dart';
 import 'package:dikouba/model/post_model.dart';
 import 'package:dikouba/model/postcomment_model.dart';
 import 'package:dikouba/model/postfavourite_model.dart';
@@ -24,7 +24,7 @@ import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 import 'package:flick_video_player/flick_video_player.dart';*/
 
-/*
+
 class SinglePostWidget extends StatefulWidget {
   CustomAppTheme customAppTheme;
   PostModel postModel;
@@ -95,7 +95,7 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
   Widget build(BuildContext context) {
     themeData = Theme.of(context);
     Size screenSize = MediaQuery.of(context).size;
-    int spentTime = DateTime.now().difference(DateTime.fromMillisecondsSinceEpoch(int.parse(widget.postModel.created_at.seconds) * 1000)).inMinutes;
+    int spentTime = DateTime.now().difference(DateTime.fromMillisecondsSinceEpoch(int.parse(widget.postModel.created_at!.seconds) * 1000)).inMinutes;
 
     return Container(
       margin: Spacing.fromLTRB(16, 4, 16, 4),
@@ -117,13 +117,13 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
               CircleAvatar(
                   //backgroundColor: Theme.of(context).accentColor,
                   backgroundImage:
-                  NetworkImage(widget.postModel.annoncers.picture_path),
+                  NetworkImage(widget.postModel.annoncers!.picture_path),
                 ),
               SizedBox(
                 width: 16,
               ),
               Text(
-                widget.postModel.annoncers.compagny,
+                widget.postModel.annoncers!.compagny,
                 style: Theme.of(context)
                     .textTheme
                     .headline6,
@@ -327,7 +327,7 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
       _isEventFavoring = true;
     });
 
-    PostFavouriteModel favouriteModel = new PostFavouriteModel();
+    PostFavouriteModel favouriteModel = new PostFavouriteModel(id_users: '', id_posts: '', id_evenements: '');
     favouriteModel.id_evenements = widget.postModel.id_evenements;
     favouriteModel.id_posts = widget.postModel.id_posts;
     favouriteModel.id_users = widget.userId;
@@ -372,7 +372,7 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
       _isDeleting = true;
     });
 
-    PostModel postModel = new PostModel();
+    PostModel postModel = new PostModel(nbre_likes: '', id_annoncers: '', media: '', description: '', id_posts: '', type: '', id_evenements: '', nbre_comments: '');
     postModel.id_evenements = widget.postModel.id_evenements;
     postModel.id_posts = widget.postModel.id_posts;
 
@@ -408,8 +408,9 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
     });
   }
 }
-*/
-/*class mediaDialog extends StatefulWidget {
+
+/*
+class mediaDialog extends StatefulWidget {
   PostModel postModel;
   //Function(bool) willRefresh;
   mediaDialog(this.postModel);//, this.willRefresh);
@@ -525,4 +526,6 @@ class _mediaDialogState extends State<mediaDialog> {
       },
     );
   }
-}*/
+}
+
+*/

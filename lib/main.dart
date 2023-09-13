@@ -22,18 +22,56 @@ import 'activity/splashscreen_activity.dart';
 /// Run first apps open
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) async {
+    await Firebase.initializeApp();
+
+    //await NotificationService().init(); //
+    //await NotificationService().requestIOSPermissions(); //
+
+    runApp(ChangeNotifierProvider<AppThemeNotifier>(
+      create: (context) => AppThemeNotifier(),
+      child: myApp(),
+    ));
+  });
+
+  /*await Firebase.initializeApp(
     //options: DefaultFirebaseOptions.currentPlatform,
   );
   //runApp(myApp());
   runApp(ChangeNotifierProvider<AppThemeNotifier>(
     create: (context) => AppThemeNotifier(),
     child: myApp(),
-  ));
+  ));*/
 }
 
 /// Set orienttation
 class myApp extends StatelessWidget {
+
+  //Navigator Key for onWillPop on Home Activity
+  static GlobalKey<NavigatorState> HomeNavigatorKey = new GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> AgendaNavigatorKey = new GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> MapNavigatorKey = new GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> LiveNavigatorKey = new GlobalKey<NavigatorState>();
+
+  /*
+  //Trace for firebase Performance
+  static Trace getAllEventServer = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace likeEvent = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace unLikeEvent = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace favorisEvent = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace unFavorisEvent = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace findUserEventLikes = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace findUserEventFavoris = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  /*static Trace getAllEventServer = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace getAllEventServer = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  static Trace getAllEventServer = FirebasePerformance.instance.newTrace("GetAllEventServerTime");
+  */
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalyticsObserver observer =
+  FirebaseAnalyticsObserver(analytics: analytics);*/
+
   @override
   Widget build(BuildContext context) {
     /// To set orientation always portrait

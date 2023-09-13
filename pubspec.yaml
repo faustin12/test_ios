@@ -63,6 +63,24 @@ dependencies:
   provider: ^6.0.5
   firebase_core: ^2.15.0
   flutter_launcher_icons: ^0.13.1
+  percent_indicator: ^4.2.3
+  flutter_geocoder: ^0.2.2-nullsafety
+  google_maps_flutter: ^2.5.0
+  video_thumbnail: ^0.5.3
+  geocoding: ^2.1.0
+  readmore: ^2.2.0
+  flutter_speed_dial: ^7.0.0
+  qr_code_scanner: ^1.0.1
+  flutter_datetime_picker: ^1.5.1
+  flutter_typeahead: ^4.7.0
+  shimmer: ^3.0.0
+  qr_flutter: ^4.1.0
+  barcode_scan2: ^4.2.4
+  flutter_barcode_scanner: ^2.0.0
+  webview_flutter: ^4.2.4
+  webview_flutter_android: ^3.10.0
+  webview_flutter_wkwebview: ^3.7.4
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:

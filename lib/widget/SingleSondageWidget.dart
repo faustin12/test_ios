@@ -1,5 +1,5 @@
 import 'package:dikouba/AppTheme.dart';
-//import 'package:dikouba/activity/event/eventupdatesondage_activity.dart';
+import 'package:dikouba/activity/event/eventupdatesondage_activity.dart';
 import 'package:dikouba/model/sondage_model.dart';
 import 'package:dikouba/model/sondagereponse_model.dart';
 import 'package:dikouba/model/user_model.dart';
@@ -8,9 +8,9 @@ import 'package:dikouba/utils/DikoubaColors.dart';
 import 'package:dikouba/utils/SizeConfig.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:percent_indicator/percent_indicator.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
-/*
+
 class SingleSondageWidget extends StatefulWidget {
   CustomAppTheme customAppTheme;
   SondageModel sondageModel;
@@ -73,7 +73,7 @@ class SingleSondageWidgetState extends State<SingleSondageWidget> {
               width: double.infinity,
               color: themeData.primaryColor,
               child: Text(
-                "${widget.sondageModel.evenements.title == null ? '' : widget.sondageModel.evenements.title}",
+                "${widget.sondageModel.evenements?.title == null ? '' : widget.sondageModel.evenements?.title}",
                 maxLines: 1,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
@@ -308,12 +308,12 @@ class SingleSondageWidgetState extends State<SingleSondageWidget> {
         SondageModel sondageModel = SondageModel.fromJson(responseSdage.data);
 
         double total = 0;
-        for (int i = 0; i < sondageModel.reponses.length; i++) {
-          total += double.parse(sondageModel.reponses[i].nombre_vote);
+        for (int i = 0; i < sondageModel.reponses!.length; i++) {
+          total += double.parse(sondageModel.reponses![i]!.nombre_vote);
           // print("${TAG}:findDetailSondage ${sondageModel.reponses.length} totalVoteValeur = ${sondageModel.reponses[i].nombre_vote}");
         }
         print(
-            "${TAG}:findDetailSondage ${sondageModel.reponses.length} totalVote = $total");
+            "${TAG}:findDetailSondage ${sondageModel.reponses?.length} totalVote = $total");
 
         if (!mounted) return;
         setState(() {
@@ -339,11 +339,11 @@ class SingleSondageWidgetState extends State<SingleSondageWidget> {
   void checkHasVote() {
     bool hasVote = false;
     String? idReponseVotre;
-    for (int i = 0; i < widget.sondageModel.reponsesusers.length; i++) {
-      if (widget.sondageModel.reponsesusers[i].id_users ==
+    for (int i = 0; i < widget.sondageModel.reponsesusers!.length; i++) {
+      if (widget.sondageModel.reponsesusers![i]!.id_users ==
           widget.userModel.id_users) {
         hasVote = true;
-        idReponseVotre = widget.sondageModel.reponsesusers[i].id_reponses;
+        idReponseVotre = widget.sondageModel.reponsesusers![i]!.id_reponses;
         break;
       }
     }
@@ -361,7 +361,7 @@ class SingleSondageWidgetState extends State<SingleSondageWidget> {
     API
         .addLigneSondage(
             sondageReponseModel.id_evenements,
-            widget.userModel.id_users,
+            widget.userModel.id_users!,
             sondageReponseModel.id_sondages,
             sondageReponseModel.id_reponses,
             sondageReponseModel.valeur)
@@ -391,4 +391,3 @@ class SingleSondageWidgetState extends State<SingleSondageWidget> {
     });
   }
 }
-*/
