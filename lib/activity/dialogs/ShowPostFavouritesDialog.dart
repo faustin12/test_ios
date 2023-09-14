@@ -13,7 +13,7 @@ import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ShowPostFavouritesDialog extends StatefulWidget {
-  ThemeData themeData;
+  ThemeData? themeData;
   PostModel postModel;
   String userId;
 
@@ -212,14 +212,14 @@ class _ShowPostFavouritesDialogState extends State<ShowPostFavouritesDialog> {
                 children: [
                   Text(
                     "${favouriteModel.users!.name}",
-                    style: widget.themeData.textTheme.bodyMedium?.copyWith(
-                        color: widget.themeData.colorScheme.onBackground,
+                    style: widget.themeData?.textTheme.bodyMedium?.copyWith(
+                        color: widget.themeData?.colorScheme.onBackground??Colors.black12,
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
                     "$createdAt",
-                    style: widget.themeData.textTheme.bodySmall?.copyWith(
-                        color: widget.themeData.colorScheme.onBackground,
+                    style: widget.themeData?.textTheme.bodySmall?.copyWith(
+                        color: widget.themeData?.colorScheme.onBackground??Colors.black12,
                         fontWeight: FontWeight.w500, ),//muted: true),
                   ),
                 ],

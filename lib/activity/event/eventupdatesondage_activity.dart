@@ -671,7 +671,7 @@ class EvenUpdateSondageActivityState extends State<EvenUpdateSondageActivity> {
     sondageModel.end_date_tmp =
         "${DateFormat('MM-dd-yyyy HH:mm').format(_endDate)}";
 
-    API.updateSondage(sondageModel).then((responseEvent) async {
+    /*API.updateSondage(sondageModel).then((responseEvent) async {
       print(
           "$TAG:updateSondage:createEvent responseCreated = ${responseEvent.statusCode}|${responseEvent.data}");
 
@@ -698,7 +698,7 @@ class EvenUpdateSondageActivityState extends State<EvenUpdateSondageActivity> {
 
       // print("${TAG}:createAnnoncer catchError ${errorLogin.response.statusCode}|${errorLogin.response.data}");
       return;
-    });
+    });*/
   }
 
   void gotoAddSession(

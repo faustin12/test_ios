@@ -2,22 +2,22 @@ import 'package:dikouba/model/firebasedate_model.dart';
 import 'package:dikouba/model/user_model.dart';
 
 class PostCommentModel {
-  String id_evenements;
-  String id_users;
-  String id_posts;
+  String? id_evenements;
+  String? id_users;
+  String? id_posts;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
-  String content;
+  String? content;
   UserModel? users;
 
   PostCommentModel(
       {this.created_at,
       this.updated_at,
-      required this.id_users,
-      required this.id_posts,
-      required this.content,
+      this.id_users,
+      this.id_posts,
+      this.content,
       this.users,
-      required this.id_evenements});
+      this.id_evenements});
 
   factory PostCommentModel.fromJson(Map<String, dynamic> json) {
     return PostCommentModel(
@@ -36,6 +36,6 @@ class PostCommentModel {
           : UserModel.fromJson(json["users"]),
     );
   }
-  String toRYString() =>
-      '{"content": "${this.content}","id_users": ${this.id_users},"id_posts": ${this.id_posts},"id_evenements": ${this.id_evenements},"created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+  String toDKBString() =>
+      '{"content": "${this.content}","id_users": ${this.id_users},"id_posts": ${this.id_posts},"id_evenements": ${this.id_evenements},"created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

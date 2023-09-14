@@ -5,15 +5,15 @@ import 'package:dikouba/model/firebaselocation_model.dart';
 class EvenementFavorisModel {
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
-  String id_users;
-  String id_evenements;
+  String? id_users;
+  String? id_evenements;
   EvenementModel? evenements;
 
   EvenementFavorisModel(
       {this.created_at,
       this.updated_at,
-      required this.id_users,
-      required this.id_evenements,
+      this.id_users,
+      this.id_evenements,
       this.evenements});
 
   factory EvenementFavorisModel.fromJson(Map<String, dynamic> json) {
@@ -26,5 +26,5 @@ class EvenementFavorisModel {
     );
   }
 
-  String toRYString() => '{"id_users": "${this.id_users}","id_evenements": "${this.id_evenements}","evenements": ${this.evenements?.toRYString()},"created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+  String toDKBString() => '{"id_users": "${this.id_users}","id_evenements": "${this.id_evenements}","evenements": ${this.evenements?.toDKBString()},"created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

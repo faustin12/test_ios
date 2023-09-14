@@ -6,38 +6,38 @@ import 'package:dikouba/model/firebaselocation_model.dart';
 import 'package:dikouba/model/sondagereponse_model.dart';
 
 class SondageModel {
-  String title;
-  FirebaseDateModel created_at;
-  FirebaseDateModel updated_at;
-  FirebaseDateModel start_date;
-  FirebaseDateModel end_date;
+  String? title;
+  FirebaseDateModel? created_at;
+  FirebaseDateModel? updated_at;
+  FirebaseDateModel? start_date;
+  FirebaseDateModel? end_date;
   EvenementModel? evenements;
   AnnoncerModel? annoncers;
   String? start_date_tmp;
   String? end_date_tmp;
-  String id_sondages;
-  String description;
-  String nombre_vote;
-  String id_annoncers;
-  String id_evenements;
-  String banner_path;
+  String? id_sondages;
+  String? description;
+  String? nombre_vote;
+  String? id_annoncers;
+  String? id_evenements;
+  String? banner_path;
   List<SondageReponseModel?>? reponses;
   List<SondageReponseModel?>? reponsesusers;
 
   SondageModel({
-      required this.title,
-      required this.created_at,
-      required this.updated_at,
-      required this.start_date,
-      required this.end_date,
+       this.title,
+       this.created_at,
+       this.updated_at,
+       this.start_date,
+       this.end_date,
       this.evenements,
     this.annoncers,
-      required this.id_sondages,
-      required this.description,
-      required this.nombre_vote,
-      required this.id_annoncers,
-      required this.id_evenements,
-      required this.banner_path,
+       this.id_sondages,
+       this.description,
+       this.nombre_vote,
+       this.id_annoncers,
+       this.id_evenements,
+       this.banner_path,
       this.reponses,
   this.reponsesusers});
 
@@ -65,5 +65,6 @@ class SondageModel {
     );
   }
 
-  String toRYString() => '{"description": "${this.description}","end_date": ${this.end_date.toRYString()},"start_date": ${this.start_date.toRYString()},"created_at": ${this.created_at.toRYString()},"updated_at": ${this.updated_at.toRYString()}}';
+  String toDKBString() => '{"description": "${this.description}","end_date": ${this.end_date?.toDKBString()},'
+      '"start_date": ${this.start_date?.toDKBString()},"created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

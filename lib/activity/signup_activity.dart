@@ -994,7 +994,7 @@ class _SignUpActivityState extends State<SignUpActivity> {
       try {
         fbUser.UserCredential userCredential =
         await fbUser.FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: userMdl.email, password: userMdl.password);
+            email: userMdl.email??'', password: userMdl.password??'');
 
         if (userCredential.user == null) {
           showDialog(
@@ -1023,7 +1023,7 @@ class _SignUpActivityState extends State<SignUpActivity> {
 
         userMdl.uid = userCredential.user!.uid;
 
-        _setUserId(userMdl.uid);
+        _setUserId(userMdl.uid??'');
 
         AnnoncerModel annoncerModel = new AnnoncerModel(
             checkout_phone_number: anceurPhoneCtrler!.text,
@@ -1034,7 +1034,7 @@ class _SignUpActivityState extends State<SignUpActivity> {
         );
 
         if (_pickedFileprofil != null) {
-          var downloadLink = await FireStorageProvider.fireUploadFileToRef(FireStorageProvider.FIRESTORAGE_REF_USERPROFILE, _pickedFileprofil!.path, userMdl.uid);
+          var downloadLink = await FireStorageProvider.fireUploadFileToRef(FireStorageProvider.FIRESTORAGE_REF_USERPROFILE, _pickedFileprofil!.path, userMdl.uid??'');
           print("$TAG:getImage downloadLink=$downloadLink");
           userMdl.photo_url = downloadLink;
         }

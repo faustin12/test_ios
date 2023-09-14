@@ -28,5 +28,5 @@ class FirebaseLocationModel {
     _longitude = value;
   }
 
-  String toRYString() => '{"_longitude": "${this._longitude}","_latitude": "${this._latitude}"}';
+  String toDKBString() => '{"_longitude": "${this._longitude}","_latitude": "${this._latitude}"}';
 }

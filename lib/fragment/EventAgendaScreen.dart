@@ -105,7 +105,7 @@ class _EventAgendaScreenState extends State<EventAgendaScreen> {
       builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         customAppTheme = AppTheme.getCustomAppTheme(value.themeMode());
         return MaterialApp(
-            navigatorKey:myApp.AgendaNavigatorKey,
+            navigatorKey:MyApp.AgendaNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
             home: Scaffold(
@@ -295,7 +295,7 @@ class _EventAgendaScreenState extends State<EventAgendaScreen> {
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(MySize.size8!)),
             child: Image(
-              image: NetworkImage(event.banner_path),
+              image: NetworkImage(event.banner_path??''),
               width: MySize.getScaledSizeHeight(80),
               height: MySize.size72,
               fit: BoxFit.cover,

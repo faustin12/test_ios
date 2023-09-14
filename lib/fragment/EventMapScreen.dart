@@ -115,7 +115,7 @@ class _EventMapScreenState extends State<EventMapScreen> {
       builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         customAppTheme = AppTheme.getCustomAppTheme(value.themeMode());
         return MaterialApp(
-            navigatorKey:myApp.MapNavigatorKey,
+            navigatorKey:MyApp.MapNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
             home: Scaffold(

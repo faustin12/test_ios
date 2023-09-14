@@ -4,32 +4,32 @@ import 'package:dikouba/model/firebasedate_model.dart';
 import 'package:dikouba/model/sondagereponse_model.dart';
 
 class PostModel {
-  String id_evenements;
-  String nbre_likes;
+  String? id_evenements;
+  String? nbre_likes;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
-  String id_annoncers;
-  String media;
-  String id_posts;
-  String type;
-  String nbre_comments;
+  String? id_annoncers;
+  String? media;
+  String? id_posts;
+  String? type;
+  String? nbre_comments;
   EvenementModel? evenements;
   AnnoncerModel? annoncers;
-  String description;
+  String? description;
 
   PostModel(
       {this.created_at,
       this.updated_at,
-      required this.nbre_likes,
-      required this.id_annoncers,
+      this.nbre_likes,
+      this.id_annoncers,
       this.evenements,
       this.annoncers,
-      required this.media,
-      required this.description,
-      required this.id_posts,
-      required this.type,
-      required this.id_evenements,
-      required this.nbre_comments});
+      this.media,
+      this.description,
+      this.id_posts,
+      this.type,
+      this.id_evenements,
+      this.nbre_comments});
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
@@ -56,5 +56,5 @@ class PostModel {
     );
   }
   String toRYString() =>
-      '{"media": "${this.media}","description": "${this.description}","evenements": ${this.evenements?.toRYString()},"nbre_comments": ${this.nbre_comments},"nbre_likes": ${this.nbre_likes},"type": ${this.type},"created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+      '{"media": "${this.media}","description": "${this.description}","evenements": ${this.evenements?.toDKBString()},"nbre_comments": ${this.nbre_comments},"nbre_likes": ${this.nbre_likes},"type": ${this.type},"created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

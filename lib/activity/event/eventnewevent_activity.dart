@@ -2153,8 +2153,9 @@ class _AddEventPackageDialogState extends State<_AddEventPackageDialog> {
       PackageModel packageModel = new PackageModel(
           name: libelleCtrler.text,
           price: priceCtrler.text,
-          max_ticket_count: maxTicketCountCtrler.text, id_packages: '', id_evenements: '');
-      Navigator.of(_formKey.currentContext!).pop('${packageModel.toRYString()}');
+          //max_ticket_count: maxTicketCountCtrler.text, id_packages: '', id_evenements: ''
+      );
+      Navigator.of(_formKey.currentContext!).pop('${packageModel.toDKBString()}');
     }
   }
 }
@@ -2257,7 +2258,7 @@ class SelectCategoryDialogState extends State<SelectCategoryDialog> {
     print("$TAG:saveForm selectedIndex=$selectedIndex");
     if (selectedIndex >= 0) {
       CategoryModel categoryModel = _listCategory[selectedIndex];
-      Navigator.of(buildContext).pop('${categoryModel.toRYString()}');
+      Navigator.of(buildContext).pop('${categoryModel.toDKBString()}');
     }
   }
 

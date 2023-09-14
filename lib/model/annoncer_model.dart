@@ -1,24 +1,24 @@
 import 'package:dikouba/model/firebasedate_model.dart';
 
 class AnnoncerModel {
-  String id_annoncers;
-  String id_users;
-  String compagny;
+  String? id_annoncers;
+  String? id_users;
+  String? compagny;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
-  String picture_path;
-  String cover_picture_path;
-  String checkout_phone_number;
+  String? picture_path;
+  String? cover_picture_path;
+  String? checkout_phone_number;
 
   AnnoncerModel(
-      {required this.id_annoncers,
-        required this.id_users,
-        required this.compagny,
+      {this.id_annoncers,
+        this.id_users,
+        this.compagny,
         this.created_at,
         this.updated_at,
-        required this.picture_path,
-        required this.cover_picture_path,
-        required this.checkout_phone_number});
+        this.picture_path,
+        this.cover_picture_path,
+        this.checkout_phone_number});
 
   factory AnnoncerModel.fromJson(Map<String, dynamic> json) {
     return AnnoncerModel(

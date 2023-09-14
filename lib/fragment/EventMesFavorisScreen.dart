@@ -371,7 +371,7 @@ class _EventMesFavorisScreenState extends State<EventMesFavorisScreen> {
     String _date = DateFormat('dd').format(_startDate) + DateFormat('MMM').format(_startDate) +
                     DateFormat('yy').format(_startDate);
     String _time = DateFormat('HH:mm').format(_startDate);
-    String _img = favorisModel.evenements!.banner_path;
+    String _img = favorisModel.evenements!.banner_path??'';
     String _desc = favorisModel.evenements!.description!;
     String _desc2 = favorisModel.evenements!.description!;
     String _desc3 = favorisModel.evenements!.description!;
@@ -648,7 +648,7 @@ class SingleEventsWidgetState extends State<SingleEventsWidget> {
                             width: double.infinity,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: NetworkImage(widget.evenementModel.banner_path), fit: BoxFit.cover),
+                                  image: NetworkImage(widget.evenementModel.banner_path??''), fit: BoxFit.cover),
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(15.0),
                                   topRight: Radius.circular(15.0)),

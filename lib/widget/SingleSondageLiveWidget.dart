@@ -269,7 +269,7 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
     setState(() {
       _isDetailsFinding = true;
     });
-    API.findSondageItem(widget.sondageModel.id_sondages).then((responseSdage) {
+    API.findSondageItem(widget.sondageModel.id_sondages??'').then((responseSdage) {
       if (responseSdage.statusCode == 200) {
         print(
             "${TAG}:findDetailSondage ${responseSdage.statusCode}|${responseSdage.data}");
@@ -277,7 +277,7 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
 
         double total = 0;
         for (int i = 0; i < sondageModel.reponses!.length; i++) {
-          total += double.parse(sondageModel.reponses![i]!.nombre_vote);
+          total += double.parse(sondageModel.reponses![i]!.nombre_vote??'');
           // print("${TAG}:findDetailSondage ${sondageModel.reponses.length} totalVoteValeur = ${sondageModel.reponses[i].nombre_vote}");
         }
         print(
@@ -328,11 +328,11 @@ class SingleSondageLiveWidgetState extends State<SingleSondageLiveWidget> {
     });
     API
         .addLigneSondage(
-            sondageReponseModel.id_evenements,
-            widget.userModel.id_users!,
-            sondageReponseModel.id_sondages,
-            sondageReponseModel.id_reponses,
-            sondageReponseModel.valeur)
+            sondageReponseModel.id_evenements??'',
+            widget.userModel.id_users??'',
+            sondageReponseModel.id_sondages??'',
+            sondageReponseModel.id_reponses??'',
+            sondageReponseModel.valeur??'')
         .then((responseEvents) {
       if (responseEvents.statusCode == 200) {
         print(

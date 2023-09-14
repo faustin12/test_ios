@@ -480,7 +480,7 @@ class SingleEventsWidgetState extends State<SingleEventsWidget> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      widget.evenementModel.banner_path),
+                                      widget.evenementModel.banner_path??''),
                                   fit: BoxFit.cover),
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(15.0),

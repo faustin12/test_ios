@@ -1,14 +1,14 @@
 import 'package:dikouba/model/firebasedate_model.dart';
 
 class PushNotificationDataModel {
-  String type;
-  String page;
-  String exist;
+  String? type;
+  String? page;
+  String? exist;
 
   PushNotificationDataModel(
-      {required this.type,
-        required this.page,
-      required this.exist});
+      {this.type,
+        this.page,
+      this.exist});
 
   factory PushNotificationDataModel.fromJson(Map<String, dynamic> json) {
     return PushNotificationDataModel(

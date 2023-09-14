@@ -25,5 +25,5 @@ class FirebaseDateModel {
     '_seconds': this._seconds,
     '_nanoseconds': this._nanoseconds,
   };
-  String toRYString() => '{"_seconds": "${this._seconds}","_nanoseconds": "${this._nanoseconds}"}';
+  String toDKBString() => '{"_seconds": "${this._seconds}","_nanoseconds": "${this._nanoseconds}"}';
 }

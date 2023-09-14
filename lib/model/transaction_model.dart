@@ -11,9 +11,9 @@ class TransactionModel {
   String? country_name;
   String? region_name;
   String? status;
-  String amount;
-  String fee;
-  String msisdn;
+  String? amount;
+  String? fee;
+  String? msisdn;
   String? email;
   String? transaction_UUID;
 
@@ -27,9 +27,9 @@ class TransactionModel {
       this.country_name,
       this.region_name,
       this.status,
-      required this.amount,
-      required this.fee,
-      required this.msisdn,
+      this.amount,
+      this.fee,
+      this.msisdn,
       this.email,
       this.transaction_UUID});
 

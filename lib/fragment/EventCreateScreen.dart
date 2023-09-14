@@ -1353,8 +1353,8 @@ class _AddEventPackageDialogState extends State<_AddEventPackageDialog> {
 
   void saveForm(BuildContext buildContext) {
     if(_formKey.currentState!.validate()) {
-      PackageModel packageModel = new PackageModel(name: libelleCtrler.text, price: priceCtrler.text, id_packages: '', id_evenements: '', max_ticket_count: '');
-      Navigator.of(_formKey.currentContext!).pop('${packageModel.toRYString()}');
+      PackageModel packageModel = new PackageModel(name: libelleCtrler.text, price: priceCtrler.text, id_packages: '', id_evenements: '');//, max_ticket_count: '');
+      Navigator.of(_formKey.currentContext!).pop('${packageModel.toDKBString()}');
     }
   }
 }

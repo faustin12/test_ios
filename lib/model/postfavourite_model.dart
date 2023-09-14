@@ -2,9 +2,9 @@ import 'package:dikouba/model/firebasedate_model.dart';
 import 'package:dikouba/model/user_model.dart';
 
 class PostFavouriteModel {
-  String id_evenements;
-  String id_users;
-  String id_posts;
+  String? id_evenements;
+  String? id_users;
+  String? id_posts;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
   UserModel? users;
@@ -33,6 +33,6 @@ class PostFavouriteModel {
           : UserModel.fromJson(json["users"]),
     );
   }
-  String toRYString() =>
-      '{"id_users": ${this.id_users},"id_posts": ${this.id_posts},"id_evenements": ${this.id_evenements},"created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+  String toDKBString() =>
+      '{"id_users": ${this.id_users},"id_posts": ${this.id_posts},"id_evenements": ${this.id_evenements},"created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

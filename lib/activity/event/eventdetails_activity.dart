@@ -1037,7 +1037,8 @@ class _EvenDetailsActivityState extends State<EvenDetailsActivity> {
                                                               _userModel,
                                                               MySize.safeWidth! -
                                                                   MySize
-                                                                      .size48!, onUpdateClickListener: () => {}),
+                                                                      .size48!, onUpdateClickListener: () => {}
+                                                          ),
                                                         );
                                                       },
                                                     ),

@@ -556,7 +556,7 @@ class dataFirestore extends StatelessWidget {
 
               String title = list[i].title!;
               String category = list[i].categories!.title!;
-              String imageUrl = list[i].banner_path;
+              String imageUrl = list[i].banner_path??'';
               String id = list[i].id_evenements!;
               String description = list[i].description!;
               String price = '50';

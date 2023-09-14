@@ -4,38 +4,38 @@ import 'package:dikouba/model/firebaselocation_model.dart';
 import 'package:dikouba/model/transaction_model.dart';
 
 class TicketModel {
-  String id_tickets;
-  String evenn_presence;
-  String payment_channel_name;
-  String id_packages;
-  String payment_paymentid;
-  String id_users;
-  String statut;
-  String payment_message;
-  String payment_status;
-  String qrcode_validate;
-  String id_evenements;
-  String payment_channel;
-  String payment_method;
+  String? id_tickets;
+  String? evenn_presence;
+  String? payment_channel_name;
+  String? id_packages;
+  String? payment_paymentid;
+  String? id_users;
+  String? statut;
+  String? payment_message;
+  String? payment_status;
+  String? qrcode_validate;
+  String? id_evenements;
+  String? payment_channel;
+  String? payment_method;
   EvenementModel? evenements;
   TransactionModel? transaction;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
 
   TicketModel(
-      {required this.id_tickets,
-      required this.evenn_presence,
-      required this.payment_channel_name,
-      required this.id_packages,
-      required this.payment_paymentid,
-      required this.id_users,
-      required this.statut,
-      required this.payment_message,
-      required this.payment_status,
-      required this.qrcode_validate,
-      required this.id_evenements,
-      required this.payment_channel,
-      required this.payment_method,
+      { this.id_tickets,
+       this.evenn_presence,
+       this.payment_channel_name,
+       this.id_packages,
+       this.payment_paymentid,
+       this.id_users,
+       this.statut,
+       this.payment_message,
+       this.payment_status,
+       this.qrcode_validate,
+       this.id_evenements,
+       this.payment_channel,
+       this.payment_method,
       this.created_at,
       this.updated_at,
       this.evenements,
@@ -72,6 +72,6 @@ class TicketModel {
           : FirebaseDateModel.fromJson(json["updated_at"]),
     );
   }
-  String toRYString() =>
-      '{"id_tickets": "${this.id_tickets}","evenn_presence": "${this.evenn_presence}","payment_channel_name": "${this.payment_channel_name}","created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+  String toDBKString() =>
+      '{"id_tickets": "${this.id_tickets}","evenn_presence": "${this.evenn_presence}","payment_channel_name": "${this.payment_channel_name}","created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

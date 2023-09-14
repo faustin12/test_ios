@@ -948,7 +948,7 @@ class _EventTicketDialogState extends State<EventTicketDialog> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(widget.ticketModel.evenements!.banner_path), fit: BoxFit.cover),
+                            image: NetworkImage(widget.ticketModel.evenements!.banner_path??''), fit: BoxFit.cover),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15.0),
                             topRight: Radius.circular(15.0)),

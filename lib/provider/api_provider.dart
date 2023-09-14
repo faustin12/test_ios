@@ -67,8 +67,8 @@ class API {
       "title": "${evenementModel.title}",
       "banner_path": "${evenementModel.banner_path}",
       "description": "${evenementModel.description}",
-      "latitude": double.parse(evenementModel.latitude),
-      "longitude": double.parse(evenementModel.longitude),
+      "latitude": double.parse(evenementModel.latitude??''),
+      "longitude": double.parse(evenementModel.longitude??''),
       "start_date": "${evenementModel.start_date_tmp}",
       "end_date": "${evenementModel.end_date_tmp}",
     };
@@ -89,8 +89,8 @@ class API {
       "title": "${evenementModel.title}",
       "banner_path": "${evenementModel.banner_path}",
       "description": "${evenementModel.description}",
-      "latitude": double.parse(evenementModel.latitude),
-      "longitude": double.parse(evenementModel.longitude),
+      "latitude": double.parse(evenementModel.latitude??''),
+      "longitude": double.parse(evenementModel.longitude??''),
       "start_date": "${evenementModel.start_date_tmp}",
       "end_date": "${evenementModel.end_date_tmp}",
     };
@@ -216,8 +216,8 @@ class API {
       "title": "${evenementModel.title}",
       "banner_path": "${evenementModel.banner_path}",
       "description": "${evenementModel.description}",
-      "latitude": double.parse(evenementModel.latitude),
-      "longitude": double.parse(evenementModel.longitude),
+      "latitude": double.parse(evenementModel.latitude??''),
+      "longitude": double.parse(evenementModel.longitude??''),
       "start_date": "${evenementModel.start_date_tmp}",
       "end_date": "${evenementModel.end_date_tmp}",
     };

@@ -65,7 +65,7 @@ class _EventLiveScreenState extends State<EventLiveScreen> {
         builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
       customAppTheme = AppTheme.getCustomAppTheme(value.themeMode());
       return MaterialApp(
-          navigatorKey: myApp.LiveNavigatorKey,
+          navigatorKey: MyApp.LiveNavigatorKey,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
     home: Scaffold(

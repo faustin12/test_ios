@@ -915,7 +915,7 @@ class _EventCreateSessionState extends State<EventCreateSession> {
         DikoubaUtils.toast_success(
             buildContext, "Evènement crée avec succés");
 
-        Navigator.of(context).pop("${eventCreated.toRYString()}");
+        Navigator.of(context).pop("${eventCreated.toDKBString()}");
         return;
       } else {
         DikoubaUtils.toast_error(
@@ -1577,8 +1577,8 @@ class _AddEventPackageDialogState extends State<_AddEventPackageDialog> {
 
   void saveForm(BuildContext buildContext) {
     if(_formKey.currentState!.validate()) {
-      PackageModel packageModel = new PackageModel(name: libelleCtrler.text, price: priceCtrler.text, id_packages: '', id_evenements: '', max_ticket_count: '');
-      Navigator.of(_formKey.currentContext!).pop('${packageModel.toRYString()}');
+      PackageModel packageModel = new PackageModel(name: libelleCtrler.text, price: priceCtrler.text, id_packages: '', id_evenements: '');//, max_ticket_count: '');
+      Navigator.of(_formKey.currentContext!).pop('${packageModel.toDKBString()}');
     }
   }
 }
@@ -1668,7 +1668,7 @@ class _SelectCategoryDialogState extends State<_SelectCategoryDialog> {
     print("$TAG:saveForm selectedIndex=$selectedIndex");
     if(selectedIndex >= 0) {
       CategoryModel categoryModel = _listCategory[selectedIndex];
-      Navigator.of(buildContext).pop('${categoryModel.toRYString()}');
+      Navigator.of(buildContext).pop('${categoryModel.toDKBString()}');
     }
   }
 

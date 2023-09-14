@@ -14,7 +14,8 @@ import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ShowPostCommentsDialog extends StatefulWidget {
-  CustomAppTheme customAppTheme;
+  //CustomAppTheme customAppTheme;
+  ThemeData? customAppTheme;
   PostModel postModel;
   String userId;
 
@@ -148,7 +149,7 @@ class _ShowPostCommentsDialogState extends State<ShowPostCommentsDialog> {
               width: double.infinity,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
-                  color: widget.customAppTheme.bgLayer1,
+                  color: Colors.black12, //widget.customAppTheme.bgLayer1,
                   border: Border.all(
                       color: themeData.colorScheme.onBackground, width: 0.8),
                   borderRadius:

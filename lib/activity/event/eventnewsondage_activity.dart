@@ -1032,7 +1032,7 @@ class _AddSondageReponseDialogState extends State<_AddSondageReponseDialog> {
     if (_formKey.currentState!.validate()) {
       SondageReponseModel packageModel = new SondageReponseModel(
           description: descriptionCtrler.text, valeur: valeurCtrler.text, id_annoncers: '', id_evenements: '', id_reponses: '', id_sondages: '', id_users: '', nombre_vote: '', sondages: null);
-      Navigator.of(_formKey.currentContext!).pop('${packageModel.toRYString()}');
+      Navigator.of(_formKey.currentContext!).pop('${packageModel.toDBKString()}');
     }
   }
 }
@@ -1135,7 +1135,7 @@ class SelectCategoryDialogState extends State<SelectCategoryDialog> {
     print("$TAG:saveForm selectedIndex=$selectedIndex");
     if (selectedIndex >= 0) {
       CategoryModel categoryModel = _listCategory[selectedIndex];
-      Navigator.of(buildContext).pop('${categoryModel.toRYString()}');
+      Navigator.of(buildContext).pop('${categoryModel.toDKBString()}');
     }
   }
 

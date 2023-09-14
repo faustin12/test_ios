@@ -4,25 +4,25 @@ import 'package:dikouba/model/firebaselocation_model.dart';
 import 'package:dikouba/model/transaction_model.dart';
 
 class NotificationModel {
-  String image_path;
-  String description;
-  String id_notifications;
-  String title;
-  String status;
-  String action;
-  String id_users;
+  String? image_path;
+  String? description;
+  String? id_notifications;
+  String? title;
+  String? status;
+  String? action;
+  String? id_users;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
 
   NotificationModel(
       {
-      required this.image_path,
-      required this.description,
-      required this.id_notifications,
-      required this.title,
-      required this.status,
-      required this.action,
-      required this.id_users,
+      this.image_path,
+      this.description,
+      this.id_notifications,
+      this.title,
+      this.status,
+      this.action,
+      this.id_users,
       this.created_at,
       this.updated_at});
 
@@ -43,6 +43,6 @@ class NotificationModel {
           : FirebaseDateModel.fromJson(json["updated_at"]),
     );
   }
-  String toRYString() =>
-      '{"id_notifications": "${this.id_notifications}","id_users": "${this.id_users}","created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+  String toDKBString() =>
+      '{"id_notifications": "${this.id_notifications}","id_users": "${this.id_users}","created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

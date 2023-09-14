@@ -32,7 +32,7 @@ void main() async {
 
     runApp(ChangeNotifierProvider<AppThemeNotifier>(
       create: (context) => AppThemeNotifier(),
-      child: myApp(),
+      child: MyApp(),
     ));
   });
 
@@ -47,7 +47,7 @@ void main() async {
 }
 
 /// Set orienttation
-class myApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
 
   //Navigator Key for onWillPop on Home Activity
   static GlobalKey<NavigatorState> HomeNavigatorKey = new GlobalKey<NavigatorState>();

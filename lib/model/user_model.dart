@@ -9,16 +9,15 @@ class UserModel {
   String? expire_date_db;
   String? created_at_db;
   String? updated_at_db;
-  String email;
-  String password;
-  String name;
+  String? email;
+  String? password;
+  String? name;
   String? password_hash;
-  String uid;
-  String photo_url;
-  String phone;
+  String? uid;
+  String? photo_url;
+  String? phone;
   String? nbre_following;
-  String email_verified;
-
+  String? email_verified;
   String? id_annoncers;
   String? annoncer_compagny;
   FirebaseDateModel? annoncer_created_at;
@@ -35,27 +34,27 @@ class UserModel {
       this.expire_date,
       this.created_at,
       this.updated_at,
-        this.expire_date_db,
-        this.created_at_db,
-        this.updated_at_db,
-      required this.email,
-      required this.password,
-      required this.name,
+      this.expire_date_db,
+      this.created_at_db,
+      this.updated_at_db,
+      this.email,
+      this.password,
+      this.name,
       this.password_hash,
-      required this.uid,
-      required this.photo_url,
-      required this.phone,
+      this.uid,
+      this.photo_url,
+      this.phone,
       this.nbre_following,
       required this.email_verified,
       this.id_annoncers,
       this.annoncer_compagny,
       this.annoncer_created_at,
-        this.annoncer_updated_at,
-        this.annoncer_picture_path,
-        this.annoncer_cover_picture_path,
-        this.annoncer_checkout_phone_number,
-        this.annoncer_created_at_db,
-        this.annoncer_updated_at_db});
+      this.annoncer_updated_at,
+      this.annoncer_picture_path,
+      this.annoncer_cover_picture_path,
+      this.annoncer_checkout_phone_number,
+      this.annoncer_created_at_db,
+      this.annoncer_updated_at_db});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(

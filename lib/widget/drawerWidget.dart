@@ -37,17 +37,17 @@ class DikoubaDrawerWidgetState extends State<DikoubaDrawerWidget> {
                   color: Theme.of(context).colorScheme.surface,
                 ),
                 accountName: Text(
-                  widget.userModel.name,
+                  widget.userModel.name??'',
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 accountEmail: Text(
-                  widget.userModel.email,
+                  widget.userModel.email??'',
                   style: Theme.of(context).textTheme.caption,
                 ),
                 currentAccountPicture: CircleAvatar(
                   //backgroundColor: Theme.of(context).accentColor,
                   backgroundImage:
-                  NetworkImage(widget.userModel.photo_url),
+                  NetworkImage(widget.userModel.photo_url??''),
                 ),
               ),
             ),

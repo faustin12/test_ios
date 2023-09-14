@@ -117,13 +117,13 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
               CircleAvatar(
                   //backgroundColor: Theme.of(context).accentColor,
                   backgroundImage:
-                  NetworkImage(widget.postModel.annoncers!.picture_path),
+                  NetworkImage(widget.postModel.annoncers!.picture_path??''),
                 ),
               SizedBox(
                 width: 16,
               ),
               Text(
-                widget.postModel.annoncers!.compagny,
+                widget.postModel.annoncers!.compagny??'',
                 style: Theme.of(context)
                     .textTheme
                     .headline6,
@@ -303,7 +303,7 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
         opaque: false,
         pageBuilder: (BuildContext context, _, __) => ShowPostCommentsDialog(
               widget.postModel,
-              widget.customAppTheme,
+              themeData ,//widget.customAppTheme,
               widget.userId,
               //analytics: widget.analytics,
               //observer: widget.observer,
@@ -341,7 +341,7 @@ class SinglePostWidgetState extends State<SinglePostWidget> {
 
         //_sendAnalyticsEvent("EventPostAddComent");
         widget.postModel.nbre_likes =
-            (int.parse(widget.postModel.nbre_likes) + 1).toString();
+            (int.parse(widget.postModel.nbre_likes??'') + 1).toString();
         setState(() {
           _isEventFavoring = false;
         });

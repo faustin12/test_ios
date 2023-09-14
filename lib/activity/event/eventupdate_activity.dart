@@ -1202,7 +1202,7 @@ class EventUpdateActivityState extends State<EventUpdateActivity> {
     evenementModel.end_date_tmp = (_endDate == null) ? "" :
         "${DateFormat('MM-dd-yyyy HH:mm').format(_endDate)}";
 
-    API.updateEvent(evenementModel).then((responseEvent) async {
+    /*API.updateEvent(evenementModel).then((responseEvent) async {
       print(
           "${TAG}:saveEvent:createEvent responseCreated = ${responseEvent.statusCode}|${responseEvent.data}");
 
@@ -1236,7 +1236,7 @@ class EventUpdateActivityState extends State<EventUpdateActivity> {
       print(
           "${TAG}:createAnnoncer catchError ${errorLogin.response.statusCode}|${errorLogin.response.data}");
       return;
-    });
+    });*/
   }
 
   void gotoAddSession(

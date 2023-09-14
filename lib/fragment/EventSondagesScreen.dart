@@ -135,7 +135,7 @@ class _EventSondagesScreenState extends State<EventSondagesScreen> {
                                   gotoUpdateSondage(
                                       _listSondagesrep[indexCateg].sondages!,
                                       _listSondagesrep[indexCateg]
-                                          .id_evenements);
+                                          .id_evenements??'');
                                 },
                               ),
                             );

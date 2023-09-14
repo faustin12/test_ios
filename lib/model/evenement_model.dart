@@ -3,8 +3,8 @@ import 'package:dikouba/model/firebasedate_model.dart';
 import 'package:dikouba/model/firebaselocation_model.dart';
 
 class EvenementModel {
-  String longitude;
-  String title;
+  String? longitude;
+  String? title;
   FirebaseLocationModel? location;
   FirebaseDateModel? created_at;
   FirebaseDateModel? updated_at;
@@ -14,47 +14,47 @@ class EvenementModel {
   FirebaseDateModel? end_date;
   CategoryModel? categories;
   EvenementModel? parent;
-  String description;
-  String nbre_tickets;
-  String id_annoncers;
-  String nbre_comments;
-  String nbre_packages;
-  String banner_path;
-  String latitude;
-  String nbre_favoris;
-  String nbre_likes;
-  String nbre_participants;
-  String id_categories;
-  String id_evenements;
-  String parent_id;
-  bool has_like;
-  bool has_favoris;
+  String? description;
+  String? nbre_tickets;
+  String? id_annoncers;
+  String? nbre_comments;
+  String? nbre_packages;
+  String? banner_path;
+  String? latitude;
+  String? nbre_favoris;
+  String? nbre_likes;
+  String? nbre_participants;
+  String? id_categories;
+  String? id_evenements;
+  String? parent_id;
+  bool? has_like;
+  bool? has_favoris;
 
   EvenementModel(
-      {required this.longitude,
-      required this.title,
+      {this.longitude,
+      this.title,
       this.location,
       this.created_at,
       this.updated_at,
       this.start_date,
       this.end_date,
-      required this.description,
-      required this.nbre_tickets,
-      required this.id_annoncers,
-      required this.nbre_comments,
-      required this.nbre_packages,
-      required this.banner_path,
-      required this.latitude,
-      required this.nbre_favoris,
-      required this.nbre_likes,
-      required this.nbre_participants,
-      required this.id_categories,
-      required this.id_evenements,
-        this.categories,
-        this.parent,
-      required this.parent_id,
-      required this.has_like,
-      required this.has_favoris});
+      this.description,
+      this.nbre_tickets,
+      this.id_annoncers,
+      this.nbre_comments,
+      this.nbre_packages,
+      this.banner_path,
+      this.latitude,
+      this.nbre_favoris,
+      this.nbre_likes,
+      this.nbre_participants,
+      this.id_categories,
+      this.id_evenements,
+      this.categories,
+      this.parent,
+      this.parent_id,
+      this.has_like,
+      this.has_favoris});
 
   factory EvenementModel.fromJson(Map<String, dynamic> json) {
     return EvenementModel(
@@ -85,5 +85,5 @@ class EvenementModel {
     );
   }
 
-  String toRYString() => '{"has_favoris": "${this.has_favoris}","has_like": "${this.has_like}","parent_id": "${this.parent_id}","id_evenements": "${this.id_evenements}","id_categories": "${this.id_categories}","nbre_participants": "${this.nbre_participants}","nbre_likes": "${this.nbre_likes}","nbre_favoris": "${this.nbre_favoris}","banner_path": "${this.banner_path}","nbre_packages": "${this.nbre_packages}","nbre_comments": "${this.nbre_comments}","id_annoncers": "${this.id_annoncers}","nbre_tickets": "${this.nbre_tickets}","description": "${this.description}","end_date": ${this.end_date?.toRYString()},"start_date": ${this.start_date?.toRYString()},"title": "${this.title}","location": ${this.location?.toRYString()},"created_at": ${this.created_at?.toRYString()},"updated_at": ${this.updated_at?.toRYString()}}';
+  String toDKBString() => '{"has_favoris": "${this.has_favoris}","has_like": "${this.has_like}","parent_id": "${this.parent_id}","id_evenements": "${this.id_evenements}","id_categories": "${this.id_categories}","nbre_participants": "${this.nbre_participants}","nbre_likes": "${this.nbre_likes}","nbre_favoris": "${this.nbre_favoris}","banner_path": "${this.banner_path}","nbre_packages": "${this.nbre_packages}","nbre_comments": "${this.nbre_comments}","id_annoncers": "${this.id_annoncers}","nbre_tickets": "${this.nbre_tickets}","description": "${this.description}","end_date": ${this.end_date?.toDKBString()},"start_date": ${this.start_date?.toDKBString()},"title": "${this.title}","location": ${this.location?.toDKBString()},"created_at": ${this.created_at?.toDKBString()},"updated_at": ${this.updated_at?.toDKBString()}}';
 }

@@ -4,19 +4,19 @@ import 'package:dikouba/model/sondage_model.dart';
 import 'package:dikouba/model/user_model.dart';
 
 class SondageReponseModel {
-  String id_sondages;
-  String nombre_vote;
-  String description;
-  String id_evenements;
-  String valeur;
-  String id_annoncers;
-  String id_reponses;
-  String id_users;
+  String? id_sondages;
+  String? nombre_vote;
+  String? description;
+  String? id_evenements;
+  String? valeur;
+  String? id_annoncers;
+  String? id_reponses;
+  String? id_users;
   UserModel? users;
   SondageModel? sondages;
 
-  SondageReponseModel({required this.id_sondages, required this.nombre_vote, required this.description, required this.id_users,
-      required this.id_evenements, required this.valeur, required this.id_annoncers, required this.id_reponses, this.users, required this.sondages});
+  SondageReponseModel({ this.id_sondages,  this.nombre_vote,  this.description,  this.id_users,
+       this.id_evenements,  this.valeur,  this.id_annoncers,  this.id_reponses, this.users,  this.sondages});
 
   factory SondageReponseModel.fromJson(Map<String, dynamic> json) {
     return SondageReponseModel(
@@ -32,6 +32,6 @@ class SondageReponseModel {
       sondages: (json["sondages"] == null || json["sondages"] == '') ? null : SondageModel.fromJson(json["sondages"]),
     );
   }
-  String toRYString() => '{"id_users": "${this.id_users}","id_reponses": "${this.id_reponses}","id_annoncers": "${this.id_annoncers}","valeur": "${this.valeur}","id_evenements": "${this.id_evenements}","nombre_vote": "${this.nombre_vote}","id_sondages": "${this.id_sondages}","description": "${this.description}"}';
+  String toDBKString() => '{"id_users": "${this.id_users}","id_reponses": "${this.id_reponses}","id_annoncers": "${this.id_annoncers}","valeur": "${this.valeur}","id_evenements": "${this.id_evenements}","nombre_vote": "${this.nombre_vote}","id_sondages": "${this.id_sondages}","description": "${this.description}"}';
 
 }

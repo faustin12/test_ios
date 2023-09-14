@@ -105,7 +105,7 @@ class _EventHomeScreenState extends State<EventHomeScreen> {
       builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         customAppTheme = AppTheme.getCustomAppTheme(value.themeMode());
         return MaterialApp(
-            navigatorKey: myApp.HomeNavigatorKey,
+            navigatorKey: MyApp.HomeNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
             home: Scaffold(
@@ -296,7 +296,7 @@ class _EventHomeScreenState extends State<EventHomeScreen> {
               mapLikemdl.containsKey(item.id_evenements),
               mapFavorismdl.containsKey(item.id_evenements),
               title: "${item.title}",
-              image: item.banner_path,
+              image: item.banner_path??'',
               date: DateFormat('dd').format(_startDate),
               month: DateFormat('MMM').format(_startDate),
               subject: "${item.description}",
@@ -491,7 +491,8 @@ class MultipleEventsWidgetState extends State<MultipleEventsWidget> {
                                     widget.customAppTheme,
                                     _listSondages[indexCateg],
                                     widget.userModel,
-                                    MySize.safeWidth! - MySize.size48!, onUpdateClickListener: () => {},), // TODO : Change onUpdateClickListener
+                                    MySize.safeWidth! - MySize.size48!, onUpdateClickListener: () => {},
+                                ), // TODO : Change onUpdateClickListener
                               );
                             },
                           ),
